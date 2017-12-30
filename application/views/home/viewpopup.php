@@ -8,7 +8,23 @@
 			<div class="modal-body">
 			<div class="tabbable-panel">
 				<div class="tabbable-line">
-					<div class="modal-body form-horizontal">
+					<ul class="nav nav-tabs ">
+				<?php
+					if($getServiceDataArr){
+						foreach($getServiceDataArr as $getServiceData){
+				?>
+						<li class="">
+							<a href="#tab_default_<?php echo $getServiceData['serviceid']; ?>" data-toggle="tab">
+							<?php echo $this->utilities->showDateForSpecificTimeZone($getServiceData['service_date'],'d-m-Y');?></a>
+						</li>
+				<?php
+						}
+					}
+				?>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_default_1">
+							<div class="modal-body form-horizontal">
 				<div class="form-group">
 					<div class="col-sm-6">
 						<label>Name</label>
@@ -87,6 +103,14 @@
 					</div>
 				</div>
 			</div>
+						</div>
+						<div class="tab-pane" id="tab_default_2">
+							
+						</div>
+						<div class="tab-pane" id="tab_default_3">
+							
+						</div>
+					</div>
 				</div>
 			</div>
 				<!--<div class="form-group">
@@ -107,7 +131,7 @@
 				</div>
 			</div>-->
 			<div class="modal-footer ">
-				<button type="button" id="updateservicepopup" onclick="updateservicepopup('');"class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Update</button>
+				<button type="button" id="updateservicepopup" onclick="updateservicepopup('<?php echo $getServiceData['id'];?>');"class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Update</button>
 			</div>
 		</div>
 	</div>

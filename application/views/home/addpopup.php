@@ -54,12 +54,12 @@
 						<input class="form-control" type="text" placeholder="Purchase Date" id="purchasedate">
 						<span id="purchasedate_error"></span>
 					</div>
-					<div class="col-sm-2">
-						<label># service</label>
+					<div class="col-sm-4">
+						<label>Number of Services</label>
 						<input class="form-control" type="text" placeholder="No of service" id="noofservice" value="0">
 						<span id="noofservice_error"></span>
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-4">
 						<label>Duration</label>
 						<select class="form-control" id="serDuration">
 							<option value="15d">15 Days</option>
@@ -70,11 +70,11 @@
 						</select>
 						<span id="noofservice_error"></span>
 					</div>
-					<div class="col-sm-4">
+					<!--<div class="col-sm-4">
 						<label>Next service.</label>
 						<input class="form-control" type="text" placeholder="Next service" id="sdate">
 						<span id="sdate_error"></span>
-					</div>
+					</div>-->
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12">
