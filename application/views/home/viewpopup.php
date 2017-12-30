@@ -3,7 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" id="closeservicepopup" onclick="closeservicepopup();"><span class="glyphicon glyphicon-remove" ></span></button>
-				<h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+				<h4 class="modal-title custom_align" id="Heading">Edit Your Detailssssss</h4>
 			</div>
 			<div class="modal-body">
 			<div class="tabbable-panel">
