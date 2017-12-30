@@ -73,6 +73,27 @@ function saveeservicepopup(){
 	}
 }
 
+function viewservic(id){
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/viewservice',
+		data: {
+			id:id
+		},
+		success: function(msg){
+			$("body").append(msg);
+			$("#sdate").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat:'dd-mm-yy'
+			});
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}
+
 function editservic(id){
 	$.ajax({
 		type: "POST",

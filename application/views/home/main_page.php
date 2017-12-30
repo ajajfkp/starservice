@@ -58,7 +58,7 @@
 							<td><?php echo '2' ?></td>
 							<td>
 								<p title="Edit">
-									<button class="btn btn-primary btn-xs" onclick="editservic('<?php echo $serviceData['id']?>');">
+									<button class="btn btn-primary btn-xs" onclick="viewservic('<?php echo $serviceData['id']?>');">
 										<span class="glyphicon glyphicon-pencil">View</span>
 									</button>
 								</p>
