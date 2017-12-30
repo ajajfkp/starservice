@@ -60,8 +60,8 @@ class Home extends CI_Controller {
 		$putArr['product_details'] = $this->input->post('productdetails');
 		$putArr['purchase_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('purchasedate'));
 		$putArr['num_service'] = $this->input->post('noofservice');
-		
-		if(!empty($this->input->post('sdate'))){
+		$sdate=$this->input->post('sdate');
+		if(!empty($sdate)){
 			$putArr['service_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('sdate'));
 		}else{
 			$putArr['service_date'] ="";
