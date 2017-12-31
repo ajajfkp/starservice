@@ -97,3 +97,10 @@ p {
     margin-top: 0;
     margin-bottom: 1rem;
 }
+
+.ad-pup-hdng {
+    background: #dadada;
+    padding: 5px 8px;
+    margin-bottom: 9px;
+    border-radius: 4px;
+}

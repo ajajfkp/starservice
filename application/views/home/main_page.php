@@ -31,13 +31,13 @@
 				<table id="mytable" class="table table-bordred table-striped">
 					<thead>
 						<th>Name</th>
-						<th>Contact</th>
 						<th>Address</th>
+						<th>Contact</th>
 						<th>Product</th>
+						<th>Brand</th>
 						<th>Purchase date</th>
-						<th>#Services</th>
-						<th>Service</th>
-						<th>Pending </th>
+						<th>Warranty</th>
+						<th>Next Service</th>
 						<th>View</th>
 						<th>Edit</th>
 						<th>Delete</th>
@@ -49,13 +49,13 @@
 					?>
 						<tr>
 							<td><?php echo ucfirst($serviceData['name']);?></td>
-							<td><?php echo "+91 ".$serviceData['contact'];?></td>
 							<td><?php echo $serviceData['address'];?></td>
+							<td><?php echo "+91 ".$serviceData['contact'];?></td>
 							<td><?php echo 'Inverter' ?></td>
+							<td><?php echo 'Microtek' ?></td>
 							<td><?php echo '05-12-2017' ?></td>
-							<td><?php echo '3' ?></td>
+							<td><?php echo 'Active' ?></td>
 							<td><?php echo date("d-M-Y",strtotime($serviceData['service_date']));?></td>
-							<td><?php echo '2' ?></td>
 							<td>
 								<p title="Edit">
 									<button class="btn btn-primary btn-xs" onclick="viewservic('<?php echo $serviceData['id']?>');">

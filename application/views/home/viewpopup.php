@@ -3,10 +3,30 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" id="closeservicepopup" onclick="closeservicepopup();"><span class="glyphicon glyphicon-remove" ></span></button>
-				<h4 class="modal-title custom_align" id="Heading">Edit Your Detailssssss</h4>
+				<h4 class="modal-title custom_align" id="Heading">View customer details	</h4>
 			</div>
 			<div class="modal-body">
-			<div class="tabbable-panel">
+				<div class="ad-pup-hdng"><b>Customer Info:</b></div>
+				<div class="form-group">
+					<h4>Mohd Kashif</h4>
+					<h5>M292 - Sctor25, Noida</h5>
+					<h6>Cell: 9871902082</h6>
+				</div>
+				<div class="ad-pup-hdng"><b>Purchase Info:</b></div>
+				<div class="form-group">
+					<h4>Mickrotek Inverter (45BS85)</h4>
+					<h5>Purchased On: 05-11-2017</h5>
+					<h6>Warranty: 2 years</h6>
+					<h6>Warranty Expired: 04-11-2019</h6>
+				</div>
+				<div class="ad-pup-hdng"><b>Services Info:</b></div>
+				<div class="form-group">
+					<h6>First Service: 04-11-2019</h6>
+					<h6>Second Service: 04-11-2019</h6>
+					<h6>Third Service: 04-11-2019</h6>
+					<h6>Fourth Service: 04-11-2019</h6>
+				</div>
+			<!--<div class="tabbable-panel">
 				<div class="tabbable-line">
 					<ul class="nav nav-tabs ">
 				<?php
@@ -112,7 +132,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 				<!--<div class="form-group">
 					<input class="form-control" type="text" placeholder="Name" id="name" value="<?php echo $getServiceData['name'];?>">
 					<span id="name_error"></span>
@@ -130,9 +150,12 @@
 					<span id="address_error"></span>
 				</div>
 			</div>-->
-			<div class="modal-footer ">
-				<button type="button" id="updateservicepopup" onclick="updateservicepopup('<?php echo $getServiceData['id'];?>');"class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Update</button>
-			</div>
+			<!--<div class="modal-footer ">
+				<button type="button" id="updateservicepopup" onclick="updateservicepopup('<?php echo $getServiceData['id'];?>');"class="btn btn-warning btn-lg" style="width: 100%;">
+					<span class="glyphicon glyphicon-ok-sign"></span>
+					Update
+				</button>
+			</div>-->
 		</div>
 	</div>
 </div>
