@@ -16,8 +16,8 @@
 				<div class="form-group">
 					<h4>Mickrotek Inverter (45BS85)</h4>
 					<h5>Purchased On: 05-11-2017</h5>
-					<h6>Warranty: 2 years</h6>
-					<h6>Warranty Expired: 04-11-2019</h6>
+					<h5>Warranty: 2 years</h6>
+					<h5>Warranty Expired: 04-11-2019</h6>
 				</div>
 				<div class="ad-pup-hdng"><b>Services Info:</b></div>
 				<div class="form-group">
