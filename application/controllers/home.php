@@ -22,7 +22,7 @@ class Home extends CI_Controller {
 	
 	public function openaddservice(){
 		$data['getServiceData'] = "";
-		$data['catddArr'] = $this->commonModel->getRecord("product_cat","*",array(),array("id","name"),"","","array","1");
+		//$data['catddArr'] = $this->commonModel->getRecord("product_cat","*",array(),array("id","name"),"","","array","1");
 		echo $this->load->view('home/addpopup',$data,true);
 	}
 	

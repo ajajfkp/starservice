@@ -341,96 +341,22 @@ class Utilities {
 			$this->CI->pagination->initialize($config);
 	}
 	
-	function getUnivByUserId($userId=""){
-		if($userId){
-			return $this->CI->commonModel->getUnivByUserId($userId);
+	function getProduct($id=""){
+		if($id){
+			return $this->commonModel->getRecord("product","*",array("id"=>$id));
 		}else{
-			return false;
+			return $this->commonModel->getRecord("product","*",array(),"","","","array","1");
 		}
+		
 	}
 	
-	function getunreadcount($userId=""){
-		if($userId){
-			return $this->CI->commonModel->getunreadcount($userId);
-		}else{
-			return false;
-		}
-	}
 	
-	function numUsersContact($bookId=""){
-		if($bookId){
-			$count = $this->CI->commonModel->getRecord('books_transaction','count(id) as count',array('book_id'=>$bookId,'transaction_typt'=>'2'));
-			if($count['count']){
-				return $count['count']." student(s) already contact with seller";
-			}else{
-				return false;
-			}
-		}else{
-			return false;
-		}
-	}
 	
-	function getLastActiveTimeDiff($uid=0){
-		$diff = 0;
-		if($uid){
-			$alstActiveTime = $this->CI->commonModel->getRecord('users','last_activity',array('id'=>$uid));
-			if($alstActiveTime){
-				$start_date = new DateTime($alstActiveTime['last_activity']);
-				$since_start = $start_date->diff(new DateTime(date('Y-m-d H:i:s')));
-				$diff = $since_start->i;
-			}else{
-				$diff=0;
-			}
-			return $diff;
-		}else{
-			return false;
-		}
-	}
 	
-	function getFeaturedBooks(){
-		return $bookdata = $this->CI->commonModel->getFeaturedBooks();
-	}
 	
-	function getUserType(){
-		$type = $this->getSessionUserData('user_type');
-		if($type == 0){
-			return 'student';
-		}else if($type == 1){
-			return 'admin';
-		}else{
-			return false;
-		}
-	}
 	
-	function getTotalUsers($type='1'){
-		return $this->CI->commonModel->getTotalUsers($type);
-	}
 	
-	function getSchoolCount($type='totlaapr'){
-		return $this->CI->commonModel->getSchoolCount($type);
-	}
 	
-	function setTotalVisitors($ip){
-		if($ip){
-			$getIp = $this->CI->commonModel->getRecord('pageview','id',array('userip'=>$ip));
-			if(!$getIp){
-				$alstActiveTime = $this->CI->commonModel->insertRecord('pageview',array('userip'=>$ip,'date_added'=>date('Y-m-d H:i:s')));
-			}
-		}
-	}
 	
-	function getTotalVisitors(){
-		$getcount = $this->CI->commonModel->getRecord('pageview','count(*) as total',array());
-		return $getcount['total'];
-	}
 	
-	function getBookPostedDate($bookId=''){
-		if($bookId){
-			$getDate = $this->CI->commonModel->getRecord('books','date_added',array('id'=>$bookId));
-			if($getDate['date_added']){
-				$date = new DateTime($getDate['date_added']);
-				return "Posted at ".$date->format('d M Y H:ia');
-			}
-		}
-	}
 }
