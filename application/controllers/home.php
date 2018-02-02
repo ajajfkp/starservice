@@ -16,11 +16,7 @@ class Home extends CI_Controller {
 		
 		$data['getServiceData'] = $this->commonModel->getRecord('services','*',array("service_date"=>Date("2018-03-04")),array(),"","","array","1");
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
-		if($this->isMobile()){
-			$this->layouts->dbview('home/main_page_mobile',$data);
-		}else{
-			$this->layouts->dbview('home/main_page',$data);
-		}
+		$this->layouts->dbview('home/main_page',$data);
 		
 	}
 	
