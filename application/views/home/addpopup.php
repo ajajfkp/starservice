@@ -1,4 +1,4 @@
-<div id="addNewEntry" class="add-new-deatil-main-con">
+	<div id="addNewEntry" class="add-new-deatil-main-con">
 		<div class="popu-header">
 			<span class="heading">Add New Entry:</span>
 			<span id="popupCloseCross" class="popup-Close" >X</span>
@@ -151,3 +151,5 @@
 			<span class="btn-save right">Save</span>
 		</div>
 	</div>
+	
+	
