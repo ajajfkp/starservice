@@ -22,7 +22,7 @@ class Home extends CI_Controller {
 	
 	public function openaddservice(){
 		$data['getServiceData'] = "";
-		//$data['catddArr'] = $this->commonModel->getRecord("product_cat","*",array(),array("id","name"),"","","array","1");
+		$data['productList'] = $this->utilities->getProduct();
 		echo $this->load->view('home/addpopup',$data,true);
 	}
 	
@@ -139,5 +139,19 @@ class Home extends CI_Controller {
 	
 	public function isMobile() {
 		return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+	}
+	
+	public function getBrandList() {
+		$prodId = $this->input->post('prodId');
+		$str ="<option value=''></option>";
+		if($prodId){
+			$brandList = $this->utilities->getBrand($prodId);
+			if($brandList){
+				foreach($brandList as $brand){
+					$str .="<option value='".$brand['id']."'>".$brand['name']."</option>";
+				}
+			}
+		}
+		echo $str;
 	}
 }

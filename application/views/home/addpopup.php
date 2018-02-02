@@ -11,22 +11,25 @@
 				<div class="popup-body-inner-rw">
 					<span class="inner-rw-label">Product:</span>
 					<span class="inner-rw-val">
-						<select class="popup-slectBx">
+						<select class="popup-slectBx" id="product" onchange="getBrandList(this.value)">
 							<option value=""></option>
-							<option value="">Battery</option>
-							<option value="">Inverter</option>
-							<option value="">Car battery</option>
+							<?php 
+							if($productList){
+								foreach($productList as $product){
+							?>
+							<option value="<?php echo $product['id'];?>"><?php echo $product['name'];?></option>
+							<?php 
+								}
+							}
+							?>
 						</select>
 					</span>
 				</div>
 				<div class="popup-body-inner-rw">
 					<span class="inner-rw-label">Brand:</span>
 					<span class="inner-rw-val">
-						<select class="popup-slectBx">
+						<select class="popup-slectBx" id="brand">
 							<option value=""></option>
-							<option value="">Mickrotek</option>
-							<option value="">Luminous</option>
-							<option value="">Okaya</option>
 						</select>
 					</span>
 				</div>

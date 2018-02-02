@@ -343,9 +343,21 @@ class Utilities {
 	
 	function getProduct($id=""){
 		if($id){
-			return $this->commonModel->getRecord("product","*",array("id"=>$id));
+			return $this->CI->commonModel->getRecord("product","*",array("id"=>$id));
 		}else{
-			return $this->commonModel->getRecord("product","*",array(),"","","","array","1");
+			return $this->CI->commonModel->getRecord("product","*",array(),"","","","array","1");
+		}
+	}
+	
+	function getBrand($productId="",$id=""){
+		if(!empty($productId)){
+			if($id){
+				return $this->CI->commonModel->getRecord("brand","*",array("product"=>$productId,"id"=>$id));
+			}else{
+				return $this->CI->commonModel->getRecord("brand","*",array("product"=>$productId),"","","","array","1");
+			}
+		}else{
+			return false;
 		}
 		
 	}

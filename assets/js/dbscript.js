@@ -18,12 +18,28 @@ $( document ).ready(function(){
 			}
 		});
 	});
-	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
+	$(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #addNewEntry").remove();
 	});
+	
+	
 });
 
-
+function getBrandList(prodId){
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/getBrandList',
+		data: {
+			prodId:prodId
+		},
+		success: function(msg){
+			$("#brand").html(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}
 function closeservicepopup(){
 	alert()
 	//$("body #addservicepopup").remove();
