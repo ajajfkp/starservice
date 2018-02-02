@@ -227,7 +227,7 @@ td {
 }
 
 .popup-slectBx {
-    width: 211px;
+    width: 225px;
     border: 1px solid #dadada;
     padding: 2px 5px;
 }
@@ -260,7 +260,7 @@ td {
 
 .popup-txtarea {
     border: 1px solid #dadada;
-    width: 210px;
+    width: 206px;
     padding: 2px 8px;
     margin-bottom: 5px;
     resize: none;
