@@ -3,7 +3,7 @@
 		<span class="tday-hdng left">
 			Services: Today &#9660;
 		</span>
-		<span class="ad-nw-btn right">Add new</span>
+		<span class="ad-nw-btn right" id="addNewSer">Add new</span>
 	</div>
 	<div class="left grd-rw">
 		<table border="0" cellpadding="0" cellspacing="0" class="grd-tabl">

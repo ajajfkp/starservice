@@ -1,4 +1,5 @@
 $( document ).ready(function(){
+	
 	$("#addNewSer").click(function(){
 		$.ajax({
 			type: "POST",
@@ -17,12 +18,15 @@ $( document ).ready(function(){
 			}
 		});
 	});
-	
+	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
+		$("body #addNewEntry").remove();
+	});
 });
 
 
 function closeservicepopup(){
-	$("body #addservicepopup").remove();
+	alert()
+	//$("body #addservicepopup").remove();
 }
 
 function saveeservicepopup(){
