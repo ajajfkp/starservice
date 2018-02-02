@@ -98,7 +98,7 @@
 				<div class="popup-body-inner-rw">
 					<span class="inner-rw-label">Address:</span>
 					<span class="inner-rw-val">
-						<input type="text" name="dateSold" class="popup-inpt">
+						<textarea class="popup-txtarea"></textarea>
 					</span>
 				</div>
 			</div>
@@ -129,6 +129,7 @@
 							<option value="">Facebook</option>
 							<option value="">Just Dial</option>
 							<option value="">Friends</option>
+							<option value="">Other</option>
 						</select>
 					</span>
 				</div>
