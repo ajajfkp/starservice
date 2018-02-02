@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/ui_msg/style.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/sweetalert/dist/sweetalert.css" type="text/css">
 		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/style_new.css" type="text/css">
+		<link rel="stylesheet" href="<?php echo base_url();?>assets/css/am_style.css" type="text/css">
 		<script src="<?php echo base_url();?>assets/js/jquery/jquery.js"></script>
 		<script type="text/javascript">
 			var base_url = '<?php echo base_url(); ?>'

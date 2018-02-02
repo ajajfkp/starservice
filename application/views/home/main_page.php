@@ -1,114 +1,285 @@
-
-<?php
-//print_r($getServiceData);die;
-?>
-
-<div class="container" style="margin-top: 50px;">
-	<div class="panel-heading">
-		<div class="row">
-			<nav class="navbar navbar-default" role="navigation" style="min-height: 0;border-radius: 10px;">
-				<a class="btn btn-lg btn-success" href="javascript:void(0);" id="addNewSer">
-					<i class="glyphicon glyphicon-plus"></i>&nbsp;Add New Service
-				</a>
-				<div class="dropdown" style="float: right;margin-top: 5px;">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Date
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#">Today</a></li>						
-						<li><a href="#">Tomorrow</a></li>
-						<li><a href="#">This week</a></li>
-						<li><a href="#">This Month</a></li>
-					</ul>
+<div class="dash-main-body left">
+	<div class="left tp-rw">
+		<span class="tday-hdng left">
+			Services: Today &#9660;
+		</span>
+		<span class="ad-nw-btn right">Add new</span>
+	</div>
+	<div class="left grd-rw">
+		<table border="0" cellpadding="0" cellspacing="0" class="grd-tabl">
+			<tbody>
+				<tr class="grd-hdr">
+					<th align="left" valign="top">Name</th>
+					<th align="left" valign="top">Contact#</th>
+					<th align="left" valign="top">Address</th>
+					<th align="left" valign="top">Prodcut</th>
+					<th align="left" valign="top">Brand</th>
+					<th align="left" valign="top">Model</th>
+					<th align="left" valign="top">Purchase</th>
+					<th align="left" valign="top">Warranty</th>
+					<th align="left" valign="top">Service Due</th>
+					<th align="left" valign="top">Action</th>	
+				</tr>
+				<div class="grd-bdy">
+					<tr class="grd-bdy-rw">
+						<td align="left" valign="top">Mohd kashif</td>
+						<td align="left" valign="top">9871902082</td>
+						<td align="left" valign="top">M-292 Sector25, Noida</td>
+						<td align="left" valign="top">Battery</td>
+						<td align="left" valign="top">Mickrotek</td>
+						<td align="left" valign="top">Invatublar</td>
+						<td align="left" valign="top">02-01-2018</td>
+						<td align="left" valign="top">01-06-2018</td>
+						<td align="left" valign="top">02-15-2018</td>
+						<td align="left" valign="top">
+							<span class="cursor" onClick="viewDetail();">View |</span>
+							<span class="cursor" onClick="editDetail();">Edit |</span>
+							<span class="cursor" onClick="deleteRow();">Delete </span>
+						</td>
+					</tr>
+					<tr class="grd-bdy-rw-evn">
+						<td align="left" valign="top">Mohd kashif</td>
+						<td align="left" valign="top">9871902082</td>
+						<td align="left" valign="top">M-292 Sector25, Noida</td>
+						<td align="left" valign="top">Battery</td>
+						<td align="left" valign="top">Mickrotek</td>
+						<td align="left" valign="top">MoonLight</td>
+						<td align="left" valign="top">02-01-2018</td>
+						<td align="left" valign="top">01-06-2018</td>
+						<td align="left" valign="top">02-15-2018</td>
+						<td align="left" valign="top">
+							<span class="cursor" onClick="viewDetail();">View |</span>
+							<span class="cursor" onClick="editDetail();">Edit |</span>
+							<span class="cursor" onClick="deleteRow();">Delete </span>
+						</td>
+					</tr>
+					<tr class="grd-bdy-rw">
+						<td align="left" valign="top">Mohd kashif</td>
+						<td align="left" valign="top">9871902082</td>
+						<td align="left" valign="top">M-292 Sector25, Noida</td>
+						<td align="left" valign="top">Battery</td>
+						<td align="left" valign="top">Mickrotek</td>
+						<td align="left" valign="top">Invatublar</td>
+						<td align="left" valign="top">02-01-2018</td>
+						<td align="left" valign="top">01-06-2018</td>
+						<td align="left" valign="top">02-15-2018</td>
+						<td align="left" valign="top">
+							<span class="cursor" onClick="viewDetail();">View |</span>
+							<span class="cursor" onClick="editDetail();">Edit |</span>
+							<span class="cursor" onClick="deleteRow();">Delete </span>
+						</td>
+					</tr>
+					<tr class="grd-bdy-rw-evn">
+						<td align="left" valign="top">Mohd kashif</td>
+						<td align="left" valign="top">9871902082</td>
+						<td align="left" valign="top">M-292 Sector25, Noida</td>
+						<td align="left" valign="top">Battery</td>
+						<td align="left" valign="top">Mickrotek</td>
+						<td align="left" valign="top">MoonLight</td>
+						<td align="left" valign="top">02-01-2018</td>
+						<td align="left" valign="top">01-06-2018</td>
+						<td align="left" valign="top">02-15-2018</td>
+						<td align="left" valign="top">
+							<span class="cursor" onClick="viewDetail();">View |</span>
+							<span class="cursor" onClick="editDetail();">Edit |</span>
+							<span class="cursor" onClick="deleteRow();">Delete </span>
+						</td>
+					</tr>
 				</div>
-			</nav>
+			</tbody>
+		</table>
+	</div>
+
+
+<!---------------------------Add New Deatil popup Code Start here--------------------------->
+
+
+	<div id="addNewEntry" class="add-new-deatil-main-con hide">
+		<div class="popu-header">
+			<span class="heading">Add New Entry:</span>
+			<span id="popupClose" class="popup-Close">X</span>
+		</div>
+		<div class="popup-body left">
+			<div class="popup-body-inr-hdng">
+				Prodcut Detail
+			</div>
+			<div class="popup-body-inner-rw-lt">
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Product:</span>
+					<span class="inner-rw-val">
+						<select class="popup-slectBx">
+							<option value=""></option>
+							<option value="">Battery</option>
+							<option value="">Inverter</option>
+							<option value="">Car battery</option>
+						</select>
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Brand:</span>
+					<span class="inner-rw-val">
+						<select class="popup-slectBx">
+							<option value=""><option>
+							<option value="">Battery<option>
+							<option value="">Inverter<option>
+							<option value="">Car battery<option>
+						</select>
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Model No:</span>
+					<span class="inner-rw-val">
+						<input type="text" name="modelNum" class="popup-inpt">
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Warranty:</span>
+					<span class="inner-rw-val">
+						<select class="popup-slectBx">
+							<option value=""><option>
+							<option value="">Battery</option>
+							<option value="">Inverter</option>
+							<option value="">Car battery</option>
+						</select>
+					</span>
+				</div>
+			</div>
+			<div class="popup-body-inner-rw-rt">
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Date Sold:</span>
+					<span class="inner-rw-val">
+						<input type="text" name="dateSold" class="popup-inpt">
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Services:</span>
+					<span class="inner-rw-val">
+						<select class="popup-slectBx">
+							<option value=""><option>
+							<option value="">Battery</option>
+							<option value="">Inverter</option>
+							<option value="">Car battery</option>
+						</select>
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Duration:</span>
+					<span class="inner-rw-val">
+						<select class="popup-slectBx">
+							<option value=""><option>
+							<option value="">Battery</option>
+							<option value="">Inverter</option>
+							<option value="">Car battery</option>
+						</select>
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Warranty End:</span>
+					<span class="inner-rw-val">
+						<input type="text" name="dateSold" class="popup-inpt">
+					</span>
+				</div>
+			</div>
+			<div class="popup-body-inr-hdng">
+				Customer Detail
+			</div>
 			
+			<div class="popup-body-inner-rw">
+				<span class="inner-rw-label">Name:</span>
+				<span class="inner-rw-val">
+					<input type="text" name="dateSold" class="popup-inpt">
+				</span>
+			</div>
+			<div class="popup-body-inner-rw">
+				<span class="inner-rw-label">Address:</span>
+				<span class="inner-rw-val">
+					<input type="text" name="dateSold" class="popup-inpt">
+				</span>
+			</div>
+			<div class="popup-body-inner-rw">
+				<span class="inner-rw-label">Mobile #:</span>
+				<span class="inner-rw-val">
+					<input type="text" name="dateSold" class="popup-inpt">
+				</span>
+			</div>
+			<div class="popup-body-inner-rw">
+				<span class="inner-rw-label">Note:</span>
+				<span class="inner-rw-val">
+					<textarea class="popup-txtarea"></textarea>
+				</span>
+			</div>
+			<div class="popup-body-inr-hdng">
+				Additional Detail
+			</div>
+			<div class="popup-body-inner-rw">
+				<span class="inner-rw-label">Where you heard about my shop:</span>
+				<span class="inner-rw-val">
+					<select class="popup-slectBx">
+						<option value=""><option>
+						<option value="">Battery</option>
+						<option value="">Inverter</option>
+						<option value="">Car battery</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		<div class="popup-body-inner-rw wdthfl">
+			<span class="btn-cancel right">Cancel</span>
+			<span class="btn-save right">Save</span>
 		</div>
 	</div>
-	<div class="row">
-        <div class="col-md-12">
-			<div class="table-responsive">   
-				<table id="mytable" class="table table-bordred table-striped">
-					<thead>
-						<th>Name</th>
-						<th>Address</th>
-						<th>Contact</th>
-						<th>Product</th>
-						<th>Brand</th>
-						<th>Purchase date</th>
-						<th>Warranty</th>
-						<th>Next Service</th>
-						<th>View</th>
-						<th>Edit</th>
-						<th>Delete</th>
-					</thead>
-					<tbody>
-					<?php
-					if($getServiceData){
-						foreach($getServiceData as $serviceData){
-					?>
-						<tr>
-							<td><?php echo ucfirst($serviceData['name']);?></td>
-							<td><?php echo $serviceData['address'];?></td>
-							<td><?php echo "+91 ".$serviceData['contact'];?></td>
-							<td><?php echo 'Inverter' ?></td>
-							<td><?php echo 'Microtek' ?></td>
-							<td><?php echo '05-12-2017' ?></td>
-							<td><?php echo 'Active' ?></td>
-							<td><?php echo date("d-M-Y",strtotime($serviceData['service_date']));?></td>
-							<td>
-								<p title="Edit">
-									<button class="btn btn-primary btn-xs" onclick="viewservic('<?php echo $serviceData['id']?>');">
-										<span class="glyphicon glyphicon-pencil">View</span>
-									</button>
-								</p>
-							</td>
-							<td>
-								<p title="Edit">
-									<button class="btn btn-primary btn-xs" onclick="editservic('<?php echo $serviceData['id']?>');">
-										<span class="glyphicon glyphicon-pencil"></span>
-									</button>
-								</p>
-							</td>
-							<td>
-								<p title="Delete">
-									<button class="btn btn-danger btn-xs" onclick="deleteservic('<?php echo $serviceData['id']?>');">
-										<span class="glyphicon glyphicon-trash"></span>
-									</button>
-								</p>
-							</td>
-						</tr>
-					<?php
-						}
-					}
-					?>
-					</tbody>
-				</table>
-			</div>
-        </div>
+
+
+
+
+
+
+
+
+
+<!---------------------------Add New Deatil popup Code End here--------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--<div class="menu">
+		<div class="menu-frst-rw">
+			<span class="serach-bar" onclick="searchPage();">
+				<input type="text" class="serach-inpt">
+			</span>
+		</div>
+		<div class="menu-frst-rw">
+			<span class="provider-bar">
+				<span class="plabel">Provider:</span>
+				<span class="pvalue">John Brooks:</span>
+				<span class="prfilter-blk">
+				</span>
+			</span>
+		</div>
 	</div>
+	<div class="lower-sec">
+		<span class="nav">Left Nav</span>
+		<span class="section">Right</span>
+	</div>-->
+	
+	
 </div>
-    
-    
-    
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-      </div>
-          <div class="modal-body">
-       
-       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-       
-      </div>
-        <div class="modal-footer ">
-        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-      </div>
-        </div>
-    <!-- /.modal-content --> 
-  </div>
-      <!-- /.modal-dialog --> 
-    </div>
