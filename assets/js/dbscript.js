@@ -43,10 +43,6 @@ function getBrandList(prodId){
 		}
 	});
 }
-function closeservicepopup(){
-	alert()
-	//$("body #addservicepopup").remove();
-}
 
 function saveeservicepopup(){
 	var validateArray = Array();
