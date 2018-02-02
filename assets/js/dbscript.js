@@ -21,6 +21,9 @@ $( document ).ready(function(){
 	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #addNewEntry").remove();
 	});
+	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
+		$("body #viewEntry").remove();
+	});
 });
 
 
@@ -190,3 +193,17 @@ function deleteservic(id){
 }
 
 
+ function viewDetail(){
+	$.ajax({
+			type: "POST",
+			url: base_url+'home/viewDetail',
+			data: {
+			},
+			success: function(msg){
+				$("body").append(msg);
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				setUiMessege('err',errorThrown);
+			}
+		});
+ }
