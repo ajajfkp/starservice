@@ -1,7 +1,17 @@
 <div class="dash-main-body left">
 	<div class="left tp-rw">
-		<span class="tday-hdng left">
-			Services: Today &#9660;
+		<span class="tday-hdng left">Services: </span>
+		<span class="dt-sel left">
+			&#9660; Today 
+		</span>
+		<span class="dd-list">
+			<ul>
+				<li class="dd-listing">Tomorrow</li>
+				<li class="dd-listing">This week</li>
+				<li class="dd-listing">This Month</li>
+				<li class="dd-listing">Last Month</li>
+				<li class="dd-listing">This year</li>
+			</ul>
 		</span>
 		<span class="ad-nw-btn right" id="addNewSer">Add new</span>
 	</div>

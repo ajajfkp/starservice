@@ -30,10 +30,19 @@ body{
 }
 
 header {
-    border-bottom: 1px solid #dadada;
+    /* border-bottom: 1px solid #dadada; */
+	box-shadow: 0px 2px 5px 0px #9b9b9b;
     font-size: 22px;
     padding: 10px 20px;
     width: calc(100% - 40px);
+	background: #c90432;
+	background: -moz-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #c90432), color-stop(44%, #a8052b), color-stop(100%, #850220));
+	background: -webkit-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: -o-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: radial-gradient(ellipse at center, #c90432 0%, #a8052b 44%, #850220 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c90432', endColorstr='#850220', GradientType=1 );
 }
 .mainBody {
    width: 100%;
@@ -101,26 +110,41 @@ footer {
     text-align: center;
     width: calc(100% - 40px);
 }
+
+.welcomtext, .sign-name {
+    color: #ffffff;
+}
+
 .signout {
-    color: #3399ff;
+    color: #fef654;
     cursor: pointer;
     float: right;
     font-size: 12px;
-	margin-left:15px;
+	margin:5px 0px 0px 15px;
 }
 
 .sign-name{
 	font-size:18px;
+	margin-top: 5px;
 }
 
 .dash-main-body {
     width: 100%;
+	/* background: #c90432;
+	background: -moz-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #c90432), color-stop(44%, #a8052b), color-stop(100%, #850220));
+	background: -webkit-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: -o-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
+	background: radial-gradient(ellipse at center, #c90432 0%, #a8052b 44%, #850220 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c90432', endColorstr='#850220', GradientType=1 );
+	min-height:600px; */
 }
 
 .tp-rw {
     width: 100%;
     padding: 8px 0px;
-    border-bottom: 1px solid #dadada;
+    /* border-bottom: 1px solid #dadada; */
 }
 
 .grd-rw {
@@ -138,7 +162,7 @@ th{
 
 td {
     padding: 6px 10px;
-    font-size: 0.8em;
+    font-size: 0.72em;
 }
 
 .grd-hdr {
@@ -147,7 +171,8 @@ td {
 }
 
 .grd-bdy-rw-evn {
-    background-color: #f6e0e0;
+    /* background-color: #f6e0e0; */
+	background-color: #d4ede6;
 }
 
 .tday-hdng {
@@ -327,9 +352,34 @@ td {
 	width:60px;
 }
 
+.dd-list {
+    float: left;
+    width: 190px;
+    background: #dadada;
+    font-size: 0.72em;
+    position: absolute;
+    box-shadow: 0px 0px 7px 0px #818181;
+    top: 96px;
+    left:85px;
+}
 
+.dd-list ul {
+    list-style: none;
+}
 
+.dd-listing {
+    padding: 9px 12px 9px 22px;
+    border-bottom: 1px solid #bfbdbd;
+    border-top: 1px solid #ffffff;
+}
 
+.dt-sel {
+    margin: 2px 0px 0px 5px;
+    background: #dadada;
+    padding: 9px 12px 9px 9px;
+    width: 170px;
+    box-shadow: 0px 0px 5px 1px #acacac, 0px 0px 10px 5px #999595 inset;
+}
 
 
 

@@ -1,9 +1,9 @@
 <header>
 	<span class="welcomtext">
-		Star Service
+		Star Services
 	</span>
 	<span id="signOut" class="signout" onclick="signout();">Sign Out</span>
 	<span class="sign-name right">
-		<h6>Welcome! Mohd Kashif</h6>
+		<h6>Welcome!&nbsp;&nbsp;Mohd Khalid </h6>
 	</span>
 </header>
