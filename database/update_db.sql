@@ -1073,3 +1073,38 @@ INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `mobile`, `ema
 (1,	'admin',	'admin',	'admin',	'9999999999',	'example@email.com',	'c4ca4238a0b923820dcc509a6f75849b',	'',	'1',	0,	'2017-12-10 20:50:05',	0,	'0000-00-00 00:00:00');
 
 -- 2017-12-30 12:34:09
+
+
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `is_active` enum('0','1') NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `product` (`id`, `name`, `is_active`) VALUES
+(1,	'battery',	'1'),
+(2,	'inverter',	'1'),
+(3,	'Car battery',	'1');
+
+
+DROP TABLE IF EXISTS `brand`;
+CREATE TABLE `brand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `product` int(11) NOT NULL,
+  `is_active` enum('0','1','2') NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `brand` (`id`, `name`, `product`, `is_active`) VALUES
+(1,	'Mickrotek',	1,	'1'),
+(2,	'Luminous',	1,	'1'),
+(3,	'Okaya',	1,	'1'),
+(4,	'Mickrotek',	2,	'1'),
+(5,	'Luminous',	2,	'1'),
+(6,	'Okaya',	2,	'1'),
+(7,	'Mickrotek',	3,	'1'),
+(8,	'Luminous',	3,	'1'),
+(9,	'Okaya',	3,	'1');
