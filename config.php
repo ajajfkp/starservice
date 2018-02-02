@@ -62,7 +62,7 @@ define("CH_DB_HOST", "localhost");
 define("CH_DB_USER", "root");
 define("CH_DB_PASSWORD", "");
 define("CH_DB_NAME", "starsdb");
-define('BASE_URL', 'http://localhost/starservice/');
+define('BASE_URL', '/starservice/');
 
 /************************************************************/
 /*********************|Email Configuration|******************/
