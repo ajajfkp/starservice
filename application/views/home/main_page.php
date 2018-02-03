@@ -1,7 +1,7 @@
 <div class="dash-main-body left">
 	<div class="left tp-rw">
 		<span class="tday-hdng left">Services: </span>
-		<span class="dt-sel left">
+		<span class="dt-sel left cursor">
 			&#9660; Today 
 		</span>
 		<span class="dd-list">
@@ -44,7 +44,8 @@
 						<td align="left" valign="top">
 							<span class="cursor" onClick="viewDetail();">View |</span>
 							<span class="cursor" onClick="editDetail();">Edit |</span>
-							<span class="cursor" onClick="deleteRow();">Delete </span>
+							<span class="cursor" onClick="updateService();">Update | </span>
+							<span class="cursor red" onClick="deleteRow();">&#10008;</span>
 						</td>
 					</tr>
 					<tr class="grd-bdy-rw-evn">
@@ -60,7 +61,8 @@
 						<td align="left" valign="top">
 							<span class="cursor" onClick="viewDetail();">View |</span>
 							<span class="cursor" onClick="editDetail();">Edit |</span>
-							<span class="cursor" onClick="deleteRow();">Delete </span>
+							<span class="cursor" onClick="updateService();">Update | </span>
+							<span class="cursor red" onClick="deleteRow();">&#10008;</span>
 						</td>
 					</tr>
 					<tr class="grd-bdy-rw">
@@ -76,7 +78,8 @@
 						<td align="left" valign="top">
 							<span class="cursor" onClick="viewDetail();">View |</span>
 							<span class="cursor" onClick="editDetail();">Edit |</span>
-							<span class="cursor" onClick="deleteRow();">Delete </span>
+							<span class="cursor" onClick="updateService();">Update | </span>
+							<span class="cursor red" onClick="deleteRow();">&#10008;</span>
 						</td>
 					</tr>
 					<tr class="grd-bdy-rw-evn">
@@ -92,7 +95,8 @@
 						<td align="left" valign="top">
 							<span class="cursor" onClick="viewDetail();">View |</span>
 							<span class="cursor" onClick="editDetail();">Edit |</span>
-							<span class="cursor" onClick="deleteRow();">Delete </span>
+							<span class="cursor" onClick="updateService();">Update | </span>
+							<span class="cursor red" onClick="deleteRow();">&#10008;</span>
 						</td>
 					</tr>
 				</div>

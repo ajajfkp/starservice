@@ -219,3 +219,18 @@ function deleteservic(id){
 			}
 		});
  }
+
+ function updateService(){
+	$.ajax({
+			type: "POST",
+			url: base_url+'home/updateEntry',
+			data: {
+			},
+			success: function(msg){
+				$("body").append(msg);
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				setUiMessege('err',errorThrown);
+			}
+		});
+ }
