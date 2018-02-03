@@ -1,6 +1,6 @@
 	<div id="viewEntry" class="add-new-deatil-main-con view-popup">
 		<div class="popu-header">
-			<span class="heading">Add New Entry:</span>
+			<span class="heading">Customer & Product Details:</span>
 			<span id="popupCloseCross" class="popup-Close" >X</span>
 		</div>
 		<div class="popup-body left">

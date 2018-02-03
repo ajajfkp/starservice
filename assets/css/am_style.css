@@ -7,6 +7,7 @@ body{
 	width:100%;
 	font-size:1.1em;
 	font-family:sans-serif;
+	background-color:#ffffff
 }
 
 .hide{
@@ -43,18 +44,12 @@ header {
     font-size: 22px;
     padding: 10px 20px;
     width: calc(100% - 40px);
-	background: #c90432;
-	background: -moz-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #c90432), color-stop(44%, #a8052b), color-stop(100%, #850220));
-	background: -webkit-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: -o-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: -ms-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: radial-gradient(ellipse at center, #c90432 0%, #a8052b 44%, #850220 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c90432', endColorstr='#850220', GradientType=1 );
 }
+
 .mainBody {
    width: 100%;
 }
+
 .loginbox {
    /*  border: 1px solid #dadada;
 	margin: 80px; 
@@ -109,6 +104,7 @@ header {
     padding: 2px 6px;
     width: 205px;
 }
+
 footer {
     border-top: 1px solid #dadada;
     bottom: 0;
@@ -119,12 +115,18 @@ footer {
     width: calc(100% - 40px);
 }
 
-.welcomtext, .sign-name {
-    color: #ffffff;
+.welcomtext{
+	font-family: android;
+	font-size: 1.1em;
+	font-weight: lighter;
+}
+
+.sign-name {
+    color: #332727;
 }
 
 .signout {
-    color: #fef654;
+    color: #548cfe;
     cursor: pointer;
     float: right;
     font-size: 12px;
@@ -138,15 +140,7 @@ footer {
 
 .dash-main-body {
     width: 100%;
-	/* background: #c90432;
-	background: -moz-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #c90432), color-stop(44%, #a8052b), color-stop(100%, #850220));
-	background: -webkit-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: -o-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: -ms-radial-gradient(center, ellipse cover, #c90432 0%, #a8052b 44%, #850220 100%);
-	background: radial-gradient(ellipse at center, #c90432 0%, #a8052b 44%, #850220 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c90432', endColorstr='#850220', GradientType=1 );
-	min-height:600px; */
+	background-color:#FAFAFA
 }
 
 .tp-rw {
@@ -164,8 +158,9 @@ footer {
 }
 
 th{
-    padding: 9px 10px;
+    padding: 7px 10px;
     font-size: 0.85em;
+	font-weight: lighter;
 }
 
 td {
@@ -174,22 +169,24 @@ td {
 }
 
 .grd-hdr {
-    background-color: #ec4807;
+    /* background-color: #ec4807; */
+	background-color: #377795;
     color: #ffffff;
 }
 
 .grd-bdy-rw-evn {
 	/* background-color: #377795; */
-	background-color: #ffd9ae;
+	background-color: #B8CEE3;
+	transition:all 0.2s ease-in-out 0s;
 }
 
 .tday-hdng {
-    margin: 9px 0px 0px 8px;
+    margin:6px 0px 0px 20px;
 }
 
 .ad-nw-btn {
     background: #30adf2;
-    padding: 10px 20px;
+    padding:7px 45px;
     margin: 0px 7px;
     border-radius: 5px;
     color: #ffffff;
@@ -210,8 +207,8 @@ td {
 
 .add-new-deatil-main-con{
 	width:735px;
-	background-color: #ffffff;
-	border: 2px solid #E9721A;
+	background-color: #fef7ea;
+	border: 1px solid #E9721A;
 	position: absolute;
 	font-size: 0.75em;
 	box-shadow: 0px 0px 30px rgba(0,0,0,0.3);
@@ -392,14 +389,15 @@ td {
 }
 
 .dd-list {
-    float: left;
-    width: 190px;
-    background: #dadada;
-    font-size: 0.72em;
-    position: absolute;
-    box-shadow: 0px 0px 7px 0px #818181;
-    top: 96px;
-    left:85px;
+	float: left;
+	width: 173px;
+	background: #dadada;
+	font-size: 0.72em;
+	position: absolute;
+	box-shadow: 0px 5px 5px 0px #818181;
+	top:131px;
+	left:87px;
+	border: 6px solid #426274;
 }
 
 .dd-list ul {
@@ -410,14 +408,25 @@ td {
     padding: 9px 12px 9px 22px;
     border-bottom: 1px solid #bfbdbd;
     border-top: 1px solid #ffffff;
+	transition:all 0.2s ease-in-out 0s;
+}
+
+.dd-listing:hover{
+	box-shadow: 0px 1px 6px 1px #818181;
+	transition: all 0.2s ease-in-out 0s;
+	border-bottom: 1px solid #ffffff;
+	cursor:pointer;
+	transform: scale(1.0);
 }
 
 .dt-sel {
-    margin: 2px 0px 0px 5px;
-    background: #dadada;
-    padding: 9px 12px 9px 9px;
-    width: 170px;
-    box-shadow: 0px 0px 5px 1px #acacac, 0px 0px 10px 5px #999595 inset;
+	margin: 0px 0px 0px 15px;
+	background: #426274;
+	padding: 7px 12px 7px 9px;
+	width: 125px;
+	box-shadow: 0px 0px 5px 1px #b6b9b8;
+	color: #ffffff;
+	cursor:pointer;
 }
 
 
@@ -451,38 +460,62 @@ td {
 }
 
 .grd-bdy-rw:hover, .grd-bdy-rw-evn:hover{
-	background-color:#377795;
-	color:#ffffff;
+	background-color:#fef592;
+/* 	color:#ffffff; */
+	transition:all 0.2s ease-in-out 0s;
 }
 
 .selected-rw{
-	background-color: #377795;
+	background-color: #fef592;
 }
 
-
-
-.menu {
-    border-bottom: 1px solid #dadada;
-    padding: 12px 20px;
-    width: calc(100% - 40px);
-}
-.lower-sec{
-	width:100%;
-}
-
-.nav {
-    border-right: 1px solid #dadada;
-    float: left;
-    height: 517px;
-    padding: 12px 20px;
-    width: 210px;
+menu {
+	float: left;
+	width: calc(100% - 25px);
+	height: 38px;
+	background: #E9721A;
+	color: #ffffff;
+	font-size: 0.9em;
+	border-bottom: 1px solid #b04d04;
+	padding-right: 25px;
 }
 
-.section {
-    float: left;
-    padding: 12px 20px;
-    width: calc(100% - 291px);
+.top-tab {
+	padding:9px 35px;
+	border: 1px solid #E9721A;
+	float: right;
+	cursor:pointer;
+	transition:all 0.2s ease-in-out 0s;
 }
+
+.tb-actv, .top-tab:hover{
+	background: #FAFAFA;
+	color: #f37c08;
+	border-radius: 13px 13px 0px 0px;
+	box-shadow: 0px -2px 8px 0px #808080;
+	font-weight: lighter;
+	border: 1px solid #b04d04;
+	cursor:Default;
+	transition:all 0.2s ease-in-out 0s;
+}
+
+.top-tab-sep {
+    float: right;
+    margin:10px 8px;
+}
+
+.frstLogo {
+    background: #C8090D;
+    padding: 5px 5px 5px 10px;
+    color: #ffffff;
+}
+
+.scndLogo {
+    background: #FBD4AE;
+    padding: 5px 10px 5px 5px;
+    margin-left: -6px;
+}
+
 
 @media only screen and (device-width: 768px) {
   /* For general iPad layouts */
