@@ -12,7 +12,7 @@
 <menu>
 	<span class="top-tab">Admin</span>
 	<span class="top-tab-sep">|</span>
-	<span class="top-tab">Product</span>
+	<span class="top-tab" onclick="productScreen();">Product</span>
 	<span class="top-tab-sep">|</span>
 	<span class="top-tab tb-actv">Services</span>
 	<span class="top-tab-sep">|</span>

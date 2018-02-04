@@ -25,6 +25,18 @@ $( document ).ready(function(){
 	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #viewEntry").remove();
 	});
+	
+	
+	$('#serviceDatecal').click(function(){
+		$('#serviceDatelst').slideToggle('slow');	
+	});
+	
+	$('.dd-listing').click(function(){
+		var listVal = $(this).html();
+		$('.filtertxt').html('');
+		$('.filtertxt').text(listVal);
+		$('#serviceDatelst').slideUp('slow');	
+	});
 
 });
 
@@ -234,3 +246,5 @@ function deleteservic(id){
 			}
 		});
  }
+ 
+  
