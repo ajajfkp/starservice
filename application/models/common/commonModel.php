@@ -379,134 +379,35 @@ class CommonModel extends CI_Model {
 		}
     }
 	
-	function getUserDataById($userId){
-		$sql = 'SELECT
-		t1.id,
-		t1.passwd,
-		t1.email_verification_code,
-		t1.active_status,
-		t1.university_flag uf,
-		t1.university_id,
-		t1.email,
-		t1.user_type,
-		t2.username,
-		t2.first_name,
-		t2.middle_name,
-		t2.last_name,
-		t2.email_univ,
-		t2.email_personal,
-		t2.mobile,
-		t2.phone,
-		t2.address_one,
-		t2.address_two,
-		t2.pincode,
-		t2.city_id,
-		t2.state_id,
-		t2.countery_id,
-		t2.profile_complete pcf
-		FROM users t1 
-		INNER JOIN user_profile t2 on t1.id=t2.users_id WHERE t1.id="'.$userId.'"';
-		
-		$query = $this->db->query($sql);
-		if($query->num_rows() > 0){
-			return $query->row_array();
+	function getservice($fromdate="",$todate=""){
+		if(!empty($todate)&&!empty($fromdate)){
+			$where = " and t1.sold_date BETWEEN '".$fromdate." and '".$fromdate."'";
+		}else if(!empty($fromdate)){
+			$where = " and t1.sold_date='".$fromdate."'";
 		}else{
-			return false;
-		}
-		
-	}
-	
-	function getUnivByUserId($userId=""){
-		if($userId){
-			$sql = "select t2.id,t2.name from users t1
-					inner join universities t2 on t1.university_id=t2.id
-					where t1.id=".$userId;
-			$query = $this->db->query($sql);
-			if($query->num_rows() > 0){
-				return $query->row_array();
-			}else{
-				return false;
-			}
-		}else{
-			return false;
-		}
-	}
-	
-	function getunreadcount($userId){
-		if($userId){
-			$sql = "select count(t1.id) as urcount from messages t1
-				inner join messages_maped t2 on t2.message_id = t1.id
-				where is_read = '1' and to_addr =".$userId;
-				$result = $this->db->query($sql);
-				if($result->num_rows()>0){
-					return $result->row()->urcount;
-				}
-		}else{
-			return false;
-		}
-	}
-		
-	function getFeaturedBooks(){
-		$sql = "select t1.id,t1.isbn10,t1.isbn13,t1.name,t1.authors,t1.price,t1.image,t1.edition,t1.name title from  books t1
-				inner join books_transaction t2 on t2.book_id = t1.id
-		where t1.active_status = '1' and t2.transaction_typt='1' order by t1.date_added desc limit 4";
-		$result = $this->db->query($sql);
-		if($result->num_rows()>0){
-			return $result->result_array();
-		}else{
-			return false;
-		}
-	}
-	
-	public function getTotalUsers($type='1'){
-		if($type == 'all'){
-			$whare = "";
-		}elseif($type == '0'){
-			$whare = "where active_status='".$type."'";
-		}elseif($type == '1'){
-			$whare = "where active_status='".$type."'";
-		}elseif($type == '2'){
-			$whare = "where active_status='".$type."'";
-		}
-		
-		$sql ="select count(*) as count from users ".$whare;
-		$data = $this->db->query($sql);
-		if ($data->num_rows() > 0) {
-			return $data->row()->count;
-		}else{
-			return false;
-		}
-	}
-	
-	function getSchoolCount($type='totlaapr'){
-		if($type == 'total'){
 			$where = "";
-		}else if($type == 'totlaapr'){
-			$where = " where approved = '1' and active_flag = '1'";
-		}else if($type == 'totlnotaapr'){
-			$where = " where approved = '0' and active_flag = '1'";
-		}else if($type == 'inact'){
-			$where = " where active_flag = '0'";
 		}
-		$sql ="select count(*) as count from universities ".$where;
-		$data = $this->db->query($sql);
-		if ($data->num_rows() > 0) {
-			return $data->row()->count;
+		$query="select * from services t1
+			inner join customer t2 on t1.customer_id=t2.id where status='1' $where";
+			$resultSet=$this->db->query($query);
+		if($resultSet->num_rows()>0){
+			return $resultSet->result();
 		}else{
 			return false;
 		}
 	}
 	
-	function gettotaluserad($userId=''){
-		$sql ="select count(*) as count from books t1 inner join books_transaction t2
-			  on t1.id = t2.book_id where t1.active_status in ('0','1') and transaction_typt='1' and t1.added_by=".$userId;
-		$data = $this->db->query($sql);
-		if ($data->num_rows() > 0) {
-			return $data->row()->count;
-		}else{
-			return false;
-		}
-	}
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
 	
 }
 

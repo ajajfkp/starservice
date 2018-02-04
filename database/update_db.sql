@@ -1108,3 +1108,43 @@ INSERT INTO `brand` (`id`, `name`, `product`, `is_active`) VALUES
 (7,	'Mickrotek',	3,	'1'),
 (8,	'Luminous',	3,	'1'),
 (9,	'Okaya',	3,	'1');
+
+/*======================================*/
+
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `mobile` varchar(50) NOT NULL,
+  `address` text NOT NULL,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `added_bt` int(11) NOT NULL,
+  `update_dby` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `services`
+ADD `customer_id` int(11) NOT NULL AFTER `id`,
+DROP `name`,
+DROP `contact`,
+DROP `address`,
+CHANGE `product_cat_id` `product_id` int(11) NOT NULL AFTER `customer_id`,
+ADD `brand_id` int(11) NOT NULL AFTER `product_id`,
+ADD `modelnumber` varchar(255) COLLATE 'utf8_general_ci' NOT NULL AFTER `brand_id`,
+CHANGE `num_service` `warranty` int(11) NOT NULL COMMENT 'in month' AFTER `modelnumber`,
+ADD `sold_date` date NOT NULL AFTER `warranty`,
+ADD `num_of_services` int(11) NOT NULL AFTER `sold_date`,
+ADD `duration` varchar(255) COLLATE 'utf8_general_ci' NOT NULL AFTER `num_of_services`,
+DROP `product_details`,
+DROP `service_date`,
+DROP `purchase_date`;
+
+ALTER TABLE `customer`
+CHANGE `added_bt` `added_by` int(11) NOT NULL AFTER `date_updated`;
+
+ALTER TABLE `services`
+ADD `referral` int(11) NOT NULL AFTER `duration`,
+ADD `referral_other` varchar(255) COLLATE 'utf8_general_ci' NOT NULL AFTER `referral`;
+

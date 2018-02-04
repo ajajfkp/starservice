@@ -7,7 +7,7 @@ $( document ).ready(function(){
 			data: {},
 			success: function(msg){
 				$("body").append(msg);
-				$("#sdate,#purchasedate").datepicker({
+				$("#dateSold,#warrantyend").datepicker({
 					changeMonth: true,
 					changeYear: true,
 					dateFormat:'dd-mm-yy'
@@ -45,45 +45,45 @@ function getBrandList(prodId){
 }
 
 function saveeservicepopup(){
+	 
 	var validateArray = Array();
-		validateArray.push("name");
-		validateArray.push("contact");
-		validateArray.push("address");
-		validateArray.push("productcat");
-		validateArray.push("productdetails");
-		validateArray.push("purchasedate");
-		validateArray.push("noofservice");
-		if($("#noofservice").val() >0){
-			validateArray.push("sdate");
-		}
-
-	if(validateinput(validateArray)){
+		validateArray.push("req,product");		
+		/* validateArray.push("req,brand");		
+		validateArray.push("req,warranty");		
+		validateArray.push("req,dateSold");		
+		validateArray.push("req,services");		
+		validateArray.push("req,duration");
+		validateArray.push("req,name");		 */
+	if(validateData(validateArray)){
 		return false;
 	}else{
 		$.ajax({
 			type: "POST",
 			url: base_url+'home/service',
 			data: {
+				product:$("#product").val(),
+				brand:$("#brand").val(),
+				modelNum:$("#modelNum").val(),
+				warranty:$("#warranty").val(),
+				dateSold:$("#dateSold").val(),
+				services:$("#services").val(),
+				duration:$("#duration").val(),
 				name:$("#name").val(),
-				contact:$("#contact").val(),
-				address:$("#address").val(),
-				productcat:$("#productcat").val(),
-				productdetails:$("#productdetails").val(),
-				purchasedate:$("#purchasedate").val(),
-				noofservice:$("#noofservice").val(),
-				serDuration:$("#serDuration").val(),
-				sdate:$("#sdate").val(),
-				notes:$("#notes").val()
+				addr:$("#addr").val(),
+				mobile:$("#mobile").val(),
+				note:$("#note").val(),
+				referral:$("#referral").val(),
+				referralotr:$("#referralotr").val()
 			},
 			success: function(msg){
-				var jsonObj = $.parseJSON(msg);
+				/* var jsonObj = $.parseJSON(msg);
 				if(jsonObj.status=="success"){
 					closeservicepopup();
 					setUiMessege('suc',jsonObj.msg);
 					window.location = base_url+"home";
 				}else{
 					setUiMessege('err',jsonObj.msg);
-				}
+				} */
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				setUiMessege('err',errorThrown);
@@ -207,15 +207,18 @@ function deleteservic(id){
 
  function viewDetail(){
 	$.ajax({
-			type: "POST",
-			url: base_url+'home/viewDetail',
-			data: {
-			},
-			success: function(msg){
-				$("body").append(msg);
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				setUiMessege('err',errorThrown);
-			}
-		});
+		type: "POST",
+		url: base_url+'home/viewDetail',
+		data: {
+		},
+		success: function(msg){
+			$("body").append(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
  }
+ 
+ 
+

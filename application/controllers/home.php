@@ -14,7 +14,7 @@ class Home extends CI_Controller {
 		//$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
 		
-		$data['getServiceData'] = $this->commonModel->getRecord('services','*',array("service_date"=>Date("2018-03-04")),array(),"","","array","1");
+		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-03-04"));
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
 		$this->layouts->dbview('home/main_page',$data);
 		
@@ -48,15 +48,22 @@ class Home extends CI_Controller {
 	}
 	
 	public function service() {
-		$putArr = Array();
+		$custArr = Array(
+			"name"=>$this->input->post('name'),
+			"mobile"=>$this->input->post('mobile'),
+			"address"=>$this->input->post('addr'),
+			"date_added"=>date("Y-m-d H:i:s"),
+			"added_by"=>$this->utilities->getSessionUserData('uid')
+		);
 		$putArrSerDet = Array();
-		$putArr['name'] = $this->input->post('name');
-		$putArr['contact'] = $this->input->post('contact');
-		$putArr['address'] = $this->input->post('address');
-		$putArr['product_cat_id'] = $this->input->post('productcat');
-		$putArr['product_details'] = $this->input->post('productdetails');
-		$putArr['purchase_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('purchasedate'));
-		$putArr['num_service'] = $this->input->post('noofservice');
+		print_r($this->input->post());die;
+		$putArrSerDet['product'] = $this->input->post('product');
+		$putArrSerDet['brand'] = $this->input->post('brand');
+		$putArrSerDet['modelNum'] = $this->input->post('modelNum');
+		$putArrSerDet['warranty'] = $this->input->post('warranty');
+		$putArrSerDet['dateSold'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
+		$putArrSerDet['services'] = $this->input->post('services');
+		$putArrSerDet['duration'] = $this->input->post('duration');
 		$sdate=$this->input->post('sdate');
 		if(!empty($sdate)){
 			$putArr['service_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('sdate'));

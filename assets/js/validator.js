@@ -1,9 +1,8 @@
 /**	Fucntion 	:	 	applyValidation
-*	Author	 	: 		Rahul Anand<rahul.anand@greenapplestech.com>
+*	Author	 	: 		Rahul Anand
 *	Description	:		This is used to make fancy validation on fields
 */
-function validateData(validArray,EvaluateMessage)
-{
+function validateData(validArray,EvaluateMessage) {
 	var checkResult=true;
 	var combinedValidStr='';
 	if(typeof validArray=='undefined' || validArray==''){
@@ -11,8 +10,7 @@ function validateData(validArray,EvaluateMessage)
 		return true;
 	}
 	
-	for(inc=0;inc<validArray.length;inc++)
-	{
+	for(inc=0;inc<validArray.length;inc++) {
 		
 		var validationType='';
 		combinedValidStr='';
@@ -173,8 +171,7 @@ function validateData(validArray,EvaluateMessage)
 		if(typeof Mess=='undefined'){
 			Mess='';
 		}
-		if($("#"+FieldId).attr('customerror')==1)	
-		{
+		if($("#"+FieldId).attr('customerror')==1) {
 			if(typeof $("#"+FieldId).attr('customErrorMsg')!='undefined' && $("#"+FieldId).attr('customErrorMsg')!=''){
 				
 				 oldAttr=$("#"+FieldId).attr('customErrorMsg');
@@ -184,14 +181,12 @@ function validateData(validArray,EvaluateMessage)
 			}
 		}
 		$("#"+FieldId).addClass("validate["+validationType+"]");
-		
 		validateResult=$("#"+FieldId).validationEngine("validate");
 		if(validateResult){
 			checkResult=false;
 		}
 	}
 	return checkResult;
-	
 }
 
 
