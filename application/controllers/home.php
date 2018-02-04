@@ -55,15 +55,37 @@ class Home extends CI_Controller {
 			"date_added"=>date("Y-m-d H:i:s"),
 			"added_by"=>$this->utilities->getSessionUserData('uid')
 		);
-		$putArrSerDet = Array();
-		print_r($this->input->post());die;
-		$putArrSerDet['product'] = $this->input->post('product');
-		$putArrSerDet['brand'] = $this->input->post('brand');
-		$putArrSerDet['modelNum'] = $this->input->post('modelNum');
-		$putArrSerDet['warranty'] = $this->input->post('warranty');
-		$putArrSerDet['dateSold'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
-		$putArrSerDet['services'] = $this->input->post('services');
-		$putArrSerDet['duration'] = $this->input->post('duration');
+		$custId = $this->commonModel->insertRecord('customer',$custArr);
+		
+		if($custId){
+			$serDataArr = Array();
+			$serDataArr['customer_id'] = $custId;
+			$serDataArr['product_id'] = $this->input->post('product');
+			$serDataArr['brand_id'] = $this->input->post('brand');
+			$serDataArr['modelnumber'] = $this->input->post('modelNum');
+			$serDataArr['warranty'] = $this->input->post('warranty');
+			$serDataArr['sold_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
+			$serDataArr['num_of_services'] = $this->input->post('services');
+			$serDataArr['duration'] = $this->input->post('duration');
+			$serDataArr['notes'] = $this->input->post('note');
+			$serDataArr['referral'] = $this->input->post('referral');
+			$serDataArr['referral_other'] = $this->input->post('referralotr');
+			
+			$serId = $this->commonModel->insertRecord('services',$serDataArr);
+			
+			if($serId){
+				$serdetailsDataArr = Array();
+				$serdetailsDataArr['service_id'] = $serId;
+				$serdetailsDataArr['service_date'] = $serId;
+				$serdetailsDataArr['service_id'] = $serId;
+				$serdetailsDataArr['service_id'] = $serId;
+			}
+			
+		}
+		
+		
+
+		
 		$sdate=$this->input->post('sdate');
 		if(!empty($sdate)){
 			$putArr['service_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('sdate'));
@@ -161,5 +183,32 @@ class Home extends CI_Controller {
 			}
 		}
 		echo $str;
+	}
+	
+	function calculateSerDate($sellDate="",$numSer="",$interval=""){
+		$retArr=Array();
+		if($numSer){
+			for($i=1;$i<=$numSer;$i++){
+				switch ($interval){
+					case "1" :
+					$newSerDate = date( "Y-m-d", strtotime( "$sellDate +1 month" ));
+					break;
+					case "3" :
+					$newSerDate = date("Y-m-d",strtotime("$sellDate +3 month"));
+					break;
+					case "6" :
+					$newSerDate = date("Y-m-d",strtotime("$sellDate +6 month"));
+					break;
+					case "12" :
+					$newSerDate = date("Y-m-d",strtotime("$sellDate +12 month"));
+					break;
+				}
+				$retArr[$i] = $newSerDate;
+				$sellDate = $newSerDate;
+			}
+			return $retArr;
+		}else{
+			return false;
+		}
 	}
 }
