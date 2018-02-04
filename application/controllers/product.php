@@ -14,7 +14,7 @@ class Product extends CI_Controller {
 		//$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
 		
-		$data['getServiceData'] = $this->commonModel->getRecord('services','*',array("service_date"=>Date("2018-03-04")),array(),"","","array","1");
+		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-02-04"));
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
 		$this->layouts->dbview('product/product',$data);
 		

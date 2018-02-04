@@ -116,6 +116,10 @@ function saveeservicepopup(){
 	}
 }
 
+function closeservicepopup(){
+	$("body #addNewEntry").remove();
+}
+
 function viewservic(id){
 	$.ajax({
 		type: "POST",

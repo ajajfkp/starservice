@@ -74,7 +74,7 @@
 					<span class="inner-rw-label">Duration:</span>
 					<span class="inner-rw-val">
 						<select class="popup-slectBx" id="duration">
-							<option value=""><option>
+							<option value=""></option>
 							<option value="1">Monthly</option>
 							<option value="3">Quarterly</option>
 							<option value="6">Half yearly</option>
@@ -128,7 +128,7 @@
 					<span class="inner-rw-label">Referral:</span>
 					<span class="inner-rw-val">
 						<select class="popup-slectBx" id="referral">
-							<option value=""><option>
+							<option value=""></option>
 							<option value="1">Whatsapp</option>
 							<option value="2">Facebook</option>
 							<option value="3">Just Dial</option>

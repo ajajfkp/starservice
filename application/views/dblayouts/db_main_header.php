@@ -20,9 +20,9 @@
 <menu>
 	<span class="top-tab">Admin</span>
 	<span class="top-tab-sep">|</span>
-	<span class="top-tab" onclick="productScreen();">Product</span>
+	<span class="top-tab" ><a href="<?php echo base_url("product"); ?>">Product</a></span>
 	<span class="top-tab-sep">|</span>
-	<span class="top-tab tb-actv">Services</span>
+	<span class="top-tab tb-actv"> <a href="<?php echo base_url("home"); ?>">Services</a></span>
 	<span class="top-tab-sep">|</span>
 </menu>
 

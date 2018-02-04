@@ -14,7 +14,9 @@ class Home extends CI_Controller {
 		//$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
 		
-		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-03-04"));
+		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-02-04"));
+		/* echo "<pre>";
+		print_r($data['getServiceData']);die; */
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
 		$this->layouts->dbview('home/main_page',$data);
 		
@@ -67,11 +69,12 @@ class Home extends CI_Controller {
 			"date_added"=>date("Y-m-d H:i:s"),
 			"added_by"=>$this->utilities->getSessionUserData('uid')
 		);
+		
 		$custId = $this->commonModel->insertRecord('customer',$custArr);
 		
-		if($custId){
+		if(1==1){
 			$serDataArr = Array();
-			$serDataArr['customer_id'] = $custId;
+			$serDataArr['customer_id'] = "";//$custId;
 			$serDataArr['product_id'] = $this->input->post('product');
 			$serDataArr['brand_id'] = $this->input->post('brand');
 			$serDataArr['modelnumber'] = $this->input->post('modelNum');
@@ -88,12 +91,13 @@ class Home extends CI_Controller {
 			
 			if($serId){
 				$calcSerDateArr = $this->calcSerDate($serDataArr['sold_date'],$serDataArr['num_of_services'],$serDataArr['duration']);
+				
 				if($calcSerDateArr){
 					foreach($calcSerDateArr as $serArr){
 						$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serArr,"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
 					}
 				}else{
-					$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serId,"done_status"=>"1","service_completed_by"=>$this->utilities->getSessionUserData('uid'),"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
+						$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serId,"done_status"=>"1","service_completed_by"=>$this->utilities->getSessionUserData('uid'),"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
 				}
 			}
 		}
@@ -184,8 +188,7 @@ class Home extends CI_Controller {
 				$retArr[$i] = $newSerDate;
 				$sellDate = $newSerDate;
 			}
-			print_r($retArr);
-			//return $retArr;
+			return $retArr;
 		}else{
 			return false;
 		}
