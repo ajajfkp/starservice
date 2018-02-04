@@ -517,6 +517,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
 	transition:all 0.2s ease-in-out 0s;
 }
 
+.top-tab a{
+	color:#ffffff;
+	text-decoration:none;
+}
+
+.tb-actv a, .top-tab a:hover{
+	color: #f37c08;
+	text-decoration:none;
+}
+
+
 .top-tab-sep {
     float: right;
     margin:10px 8px;
