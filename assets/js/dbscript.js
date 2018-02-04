@@ -25,6 +25,9 @@ $( document ).ready(function(){
 	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #viewEntry").remove();
 	});
+	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
+		$('#passwrdPopup').hide();
+	});
 	
 	
 	$('#serviceDatecal').click(function(){
@@ -36,6 +39,15 @@ $( document ).ready(function(){
 		$('.filtertxt').html('');
 		$('.filtertxt').text(listVal);
 		$('#serviceDatelst').slideUp('slow');	
+	});
+	
+	$('.prfl-pasrd-arw').click(function(){
+		$('#changePaswrd').slideToggle('slow');	
+	});
+	
+	$('.psrd-optn-listing').click(function(){
+		$('#passwrdPopup').show();
+		$('#changePaswrd').hide();	
 	});
 
 });
