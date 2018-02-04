@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Product extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		//$this->utilities->validateSession();
@@ -14,9 +14,9 @@ class Home extends CI_Controller {
 		//$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
 		
-		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-03-04"));
+		$data['getServiceData'] = $this->commonModel->getRecord('services','*',array("service_date"=>Date("2018-03-04")),array(),"","","array","1");
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
-		$this->layouts->dbview('home/main_page',$data);
+		$this->layouts->dbview('product/product',$data);
 		
 	}
 	
@@ -59,44 +59,15 @@ class Home extends CI_Controller {
 	}
 	
 	public function service() {
-		$custArr = Array(
-			"name"=>$this->input->post('name'),
-			"mobile"=>$this->input->post('mobile'),
-			"address"=>$this->input->post('addr'),
-			"date_added"=>date("Y-m-d H:i:s"),
-			"added_by"=>$this->utilities->getSessionUserData('uid')
-		);
-		$custId = $this->commonModel->insertRecord('customer',$custArr);
-		
-		if($custId){
-			$serDataArr = Array();
-			$serDataArr['customer_id'] = $custId;
-			$serDataArr['product_id'] = $this->input->post('product');
-			$serDataArr['brand_id'] = $this->input->post('brand');
-			$serDataArr['modelnumber'] = $this->input->post('modelNum');
-			$serDataArr['warranty'] = $this->input->post('warranty');
-			$serDataArr['sold_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
-			$serDataArr['num_of_services'] = $this->input->post('services');
-			$serDataArr['duration'] = $this->input->post('duration');
-			$serDataArr['notes'] = $this->input->post('note');
-			$serDataArr['referral'] = $this->input->post('referral');
-			$serDataArr['referral_other'] = $this->input->post('referralotr');
-			
-			$serId = $this->commonModel->insertRecord('services',$serDataArr);
-			
-			if($serId){
-				$serdetailsDataArr = Array();
-				$serdetailsDataArr['service_id'] = $serId;
-				$serdetailsDataArr['service_date'] = $serId;
-				$serdetailsDataArr['service_id'] = $serId;
-				$serdetailsDataArr['service_id'] = $serId;
-			}
-			
-		}
-		
-		
-
-		
+		$putArr = Array();
+		$putArrSerDet = Array();
+		$putArr['name'] = $this->input->post('name');
+		$putArr['contact'] = $this->input->post('contact');
+		$putArr['address'] = $this->input->post('address');
+		$putArr['product_cat_id'] = $this->input->post('productcat');
+		$putArr['product_details'] = $this->input->post('productdetails');
+		$putArr['purchase_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('purchasedate'));
+		$putArr['num_service'] = $this->input->post('noofservice');
 		$sdate=$this->input->post('sdate');
 		if(!empty($sdate)){
 			$putArr['service_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('sdate'));
@@ -194,32 +165,5 @@ class Home extends CI_Controller {
 			}
 		}
 		echo $str;
-	}
-	
-	function calculateSerDate($sellDate="",$numSer="",$interval=""){
-		$retArr=Array();
-		if($numSer){
-			for($i=1;$i<=$numSer;$i++){
-				switch ($interval){
-					case "1" :
-					$newSerDate = date( "Y-m-d", strtotime( "$sellDate +1 month" ));
-					break;
-					case "3" :
-					$newSerDate = date("Y-m-d",strtotime("$sellDate +3 month"));
-					break;
-					case "6" :
-					$newSerDate = date("Y-m-d",strtotime("$sellDate +6 month"));
-					break;
-					case "12" :
-					$newSerDate = date("Y-m-d",strtotime("$sellDate +12 month"));
-					break;
-				}
-				$retArr[$i] = $newSerDate;
-				$sellDate = $newSerDate;
-			}
-			return $retArr;
-		}else{
-			return false;
-		}
 	}
 }

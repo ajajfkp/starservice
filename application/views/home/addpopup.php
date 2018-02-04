@@ -5,7 +5,7 @@
 		</div>
 		<div class="popup-body left">
 			<div class="popup-body-inr-hdng">
-				Prodcut Detail
+				Product Detail
 			</div>
 			<div class="popup-body-inner-rw-lt">
 				<div class="popup-body-inner-rw">

@@ -1,6 +1,8 @@
-	<div id="viewEntry" class="add-new-deatil-main-con view-popup">
+<?php
+?>
+<div id="viewEntry" class="add-new-deatil-main-con view-popup">
 		<div class="popu-header">
-			<span class="heading">Customer & Product Details:</span>
+			<span class="heading">Update Services:</span>
 			<span id="popupCloseCross" class="popup-Close" >X</span>
 		</div>
 		<div class="popup-body left">
@@ -68,17 +70,28 @@
 					</div>
 				</div>
 			</div>
-			<div class="view-servc-dtl">
+			<div class="updt-servc-dtl">
 				<div class="popup-body-inner-rw">
 					<div class="popup-body-inner-rw-lt">
 						<span class="inner-rw-label">Service 1:</span>
-						<span class="inner-rw-val">
+						<span class="inner-rw-val red">
 							01-02-2018
 						</span>
 					</div>
 					<div class="popup-body-inner-rw-rt">
-						<span class="inner-rw-val">
-							Done by Amar deep on 01-02-2018
+						<span class="inner-rw-val wdthfl">
+							<span class="left srvc-check">
+								<input type="checkbox">
+							</span>
+							<span class="left src-dn-txt red">
+								Due 
+							</span>
+							<span class="left srvc-dt">
+								<input type="input"class="srvc-inpt" placeholder="DD-MM-YYYY">
+							</span>
+							<span class="left src-usr">
+								<input type="input"class="srvc-inpt-Name" placeholder="Enter Name">
+							</span>
 						</span>
 					</div>
 				</div>
@@ -90,8 +103,19 @@
 						</span>
 					</div>
 					<div class="popup-body-inner-rw-rt">
-						<span class="inner-rw-val">
-							Done by Rajendra on 04-02-2018
+						<span class="inner-rw-val wdthfl">
+							<span class="left srvc-check">
+								<input type="checkbox">
+							</span>
+							<span class="left src-dn-txt">
+								Done 
+							</span>
+							<span class="left srvc-dt">
+								<input type="input"class="srvc-inpt" placeholder="DD-MM-YYYY">
+							</span>
+							<span class="left src-usr">
+								<input type="input"class="srvc-inpt-Name" placeholder="Enter Name">
+							</span>
 						</span>
 					</div>
 				</div>
@@ -103,8 +127,19 @@
 						</span>
 					</div>
 					<div class="popup-body-inner-rw-rt">
-						<span class="inner-rw-val">
-							Due
+						<span class="inner-rw-val wdthfl">
+							<span class="left srvc-check">
+								<input type="checkbox" disabled="">
+							</span>
+							<span class="left src-dn-txt inactive">
+								Done 
+							</span>
+							<span class="left srvc-dt">
+								<input type="input"class="srvc-inpt" placeholder="DD-MM-YYYY" disabled="">
+							</span>
+							<span class="left src-usr">
+								<input type="input"class="srvc-inpt-Name" placeholder="Enter Name" disabled="">
+							</span>
 						</span>
 					</div>
 				</div>
@@ -116,8 +151,19 @@
 						</span>
 					</div>
 					<div class="popup-body-inner-rw-rt">
-						<span class="inner-rw-val">
-							Due
+						<span class="inner-rw-val wdthfl">
+							<span class="left srvc-check">
+								<input type="checkbox" disabled="">
+							</span>
+							<span class="left src-dn-txt inactive">
+								Done 
+							</span>
+							<span class="left srvc-dt">
+								<input type="input" class="srvc-inpt" placeholder="DD-MM-YYYY" disabled="">
+							</span>
+							<span class="left src-usr">
+								<input type="input"class="srvc-inpt-Name" placeholder="Enter Name" disabled="">
+							</span>
 						</span>
 					</div>
 				</div>
@@ -129,8 +175,3 @@
 			<span class="btn-save right">Save</span>
 		</div>
 	</div>
-	
-	
-	
-	
-	

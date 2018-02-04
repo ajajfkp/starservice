@@ -25,6 +25,18 @@ $( document ).ready(function(){
 	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #viewEntry").remove();
 	});
+	
+	
+	$('#serviceDatecal').click(function(){
+		$('#serviceDatelst').slideToggle('slow');	
+	});
+	
+	$('.dd-listing').click(function(){
+		var listVal = $(this).html();
+		$('.filtertxt').html('');
+		$('.filtertxt').text(listVal);
+		$('#serviceDatelst').slideUp('slow');	
+	});
 
 });
 
@@ -219,6 +231,19 @@ function deleteservic(id){
 		}
 	});
  }
- 
- 
 
+ function updateService(){
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/updateEntry',
+		data: {
+		},
+		success: function(msg){
+			$("body").append(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+ }
+ 
