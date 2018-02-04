@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Collegebooksrus <?php echo $title_for_layout ?></title> 
+		<title>Start Services <?php echo $title_for_layout ?></title> 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script>
 			var base_url = "<?php echo base_url(); ?>";
