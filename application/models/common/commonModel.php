@@ -388,7 +388,7 @@ class CommonModel extends CI_Model {
 			$where = "";
 		}
 		$query="select * from services t1
-			inner join customer t2 on t1.customer_id=t2.id where status='1' $where";
+			inner join customer t2 on t1.customer_id=t2.id where status='1' and  warranty!='0' $where";
 			$resultSet=$this->db->query($query);
 		if($resultSet->num_rows()>0){
 			return $resultSet->result();

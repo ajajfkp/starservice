@@ -1148,3 +1148,6 @@ ALTER TABLE `services`
 ADD `referral` int(11) NOT NULL AFTER `duration`,
 ADD `referral_other` varchar(255) COLLATE 'utf8_general_ci' NOT NULL AFTER `referral`;
 
+ALTER TABLE `services`
+ADD `warranty_exp` date NOT NULL AFTER `sold_date`;
+

@@ -88,14 +88,14 @@ function saveeservicepopup(){
 				referralotr:$("#referralotr").val()
 			},
 			success: function(msg){
-				/* var jsonObj = $.parseJSON(msg);
+				var jsonObj = $.parseJSON(msg);
 				if(jsonObj.status=="success"){
 					closeservicepopup();
 					setUiMessege('suc',jsonObj.msg);
 					window.location = base_url+"home";
 				}else{
 					setUiMessege('err',jsonObj.msg);
-				} */
+				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				setUiMessege('err',errorThrown);

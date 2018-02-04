@@ -59,6 +59,7 @@ class Home extends CI_Controller {
 	}
 	
 	public function service() {
+		
 		$custArr = Array(
 			"name"=>$this->input->post('name'),
 			"mobile"=>$this->input->post('mobile'),
@@ -78,6 +79,7 @@ class Home extends CI_Controller {
 			$serDataArr['sold_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
 			$serDataArr['num_of_services'] = $this->input->post('services');
 			$serDataArr['duration'] = $this->input->post('duration');
+			$serDataArr['warranty_exp'] = $this->calcWarExp($serDataArr['sold_date'],$serDataArr['warranty']);
 			$serDataArr['notes'] = $this->input->post('note');
 			$serDataArr['referral'] = $this->input->post('referral');
 			$serDataArr['referral_other'] = $this->input->post('referralotr');
@@ -85,71 +87,17 @@ class Home extends CI_Controller {
 			$serId = $this->commonModel->insertRecord('services',$serDataArr);
 			
 			if($serId){
-				$serdetailsDataArr = Array();
-				$serdetailsDataArr['service_id'] = $serId;
-				$serdetailsDataArr['service_date'] = $serId;
-				$serdetailsDataArr['service_id'] = $serId;
-				$serdetailsDataArr['service_id'] = $serId;
-			}
-			
-		}
-		
-		
-
-		
-		$sdate=$this->input->post('sdate');
-		if(!empty($sdate)){
-			$putArr['service_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('sdate'));
-		}else{
-			$putArr['service_date'] ="";
-		}
-		
-		$putArr['notes'] = $this->input->post('notes');
-		$putArr['added_by'] = $this->utilities->getSessionUserData('uid');
-		$putArr['date_modified'] = date("Y-m-d H:i:s");
-		
-		$up_res = $this->commonModel->insertRecord('services',$putArr);
-		if($up_res){
-			$putArrSerDet['service_id'] = $up_res;
-			$putArrSerDet['added_by'] = $this->utilities->getSessionUserData('uid');
-			$putArrSerDet['date_modified'] = date("Y-m-d H:i:s");
-			$service_date = $this->utilities->convertDateFormatForDbase($this->input->post('sdate'));
-			if($this->input->post('noofservice')>0){
-				for($i=1;$i<=$this->input->post('noofservice');$i++){
-					$serDuration = $this->input->post('serDuration');
-					
-					if($i==1){
-						$putArrSerDet['service_date'] = $service_date;
-					}else{
-						switch ($serDuration){
-							case "15d" :
-							$newSerDate = date( "Y-m-d", strtotime( "$service_date +15 days" ) );
-							break;
-							case "mon" :
-							$newSerDate = date("Y-m-d",strtotime("$service_date +1 month"));
-							break;
-							case "3mon" :
-							$newSerDate = date("Y-m-d",strtotime("$service_date +3 month"));
-							break;
-							case "6mon" :
-							$newSerDate = date("Y-m-d",strtotime("$service_date +6 month"));
-							break;
-							case "12mon" :
-							$newSerDate = date("Y-m-d",strtotime("$service_date +12 month"));
-							break;
-						}
-						$putArrSerDet['service_date'] = $newSerDate;
-						$service_date = $newSerDate;
+				$calcSerDateArr = $this->calcSerDate($serDataArr['sold_date'],$serDataArr['num_of_services'],$serDataArr['duration']);
+				if($calcSerDateArr){
+					foreach($calcSerDateArr as $serArr){
+						$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serArr,"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
 					}
-					
-					$this->commonModel->insertRecord('service_details',$putArrSerDet);
+				}else{
+					$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serId,"done_status"=>"1","service_completed_by"=>$this->utilities->getSessionUserData('uid'),"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
 				}
 			}
-		
-			echo json_encode(array("status"=>"success","msg"=>"Service recorded successfully.","data"=>$up_res));
-		}else{
-			echo json_encode(array("status"=>"error","msg"=>"Service not recorded.","data"=>""));
 		}
+		echo json_encode(array("status"=>"success","msg"=>"Service recorded successfully."));
 	}
 	
 	public function updateservice() {
@@ -196,7 +144,26 @@ class Home extends CI_Controller {
 		echo $str;
 	}
 	
-	function calculateSerDate($sellDate="",$numSer="",$interval=""){
+	function calcWarExp($sellDate="",$warranty=""){
+		if($warranty=="0" || $warranty==""){
+			return $sellDate;
+		}else{
+			switch ($warranty){
+				case "3" :
+				$warrantyExpDate = date("Y-m-d",strtotime("$sellDate +3 month"));
+				break;
+				case "6" :
+				$warrantyExpDate = date("Y-m-d",strtotime("$sellDate +6 month"));
+				break;
+				case "12" :
+				$warrantyExpDate = date("Y-m-d",strtotime("$sellDate +12 month"));
+				break;
+			}
+			return $warrantyExpDate;
+		}
+	}
+	
+	function calcSerDate($sellDate="",$numSer="",$interval=""){
 		$retArr=Array();
 		if($numSer){
 			for($i=1;$i<=$numSer;$i++){
@@ -217,7 +184,8 @@ class Home extends CI_Controller {
 				$retArr[$i] = $newSerDate;
 				$sellDate = $newSerDate;
 			}
-			return $retArr;
+			print_r($retArr);
+			//return $retArr;
 		}else{
 			return false;
 		}
