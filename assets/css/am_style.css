@@ -6,7 +6,7 @@
 body{
 	width:100%;
 	font-size:1.1em;
-	font-family:sans-serif;
+	font-family:Arial, sans-serif;
 	background-color:#ffffff
 }
 
@@ -114,7 +114,7 @@ footer {
     bottom: 0;
     font-size: 11px;
     padding: 5px 20px;
-    position: absolute;
+    position: fixed;
     text-align: center;
     width: calc(100% - 40px);
 }
@@ -150,7 +150,12 @@ footer {
 .tp-rw {
     width: 100%;
     padding: 8px 0px;
-    /* border-bottom: 1px solid #dadada; */
+}
+
+.grd-hdr {
+	background-color: #377795;
+    color: #ffffff;
+	width:100%;
 }
 
 .grd-rw {
@@ -161,21 +166,23 @@ footer {
     width: 100%;
 }
 
-th{
+.grd-hdr th{
     padding: 7px 10px;
     font-size: 0.85em;
 	font-weight: lighter;
 }
 
-td {
-    padding: 6px 10px;
+.grd-hdr th:first-child{
+	padding-left:25px;
+}
+
+.grd-bdy-rw td, .grd-bdy-rw-evn td {
+    padding:10px;
     font-size: 0.72em;
 }
 
-.grd-hdr {
-    /* background-color: #ec4807; */
-	background-color: #377795;
-    color: #ffffff;
+.grd-bdy-rw td:first-child, .grd-bdy-rw-evn td:first-child{
+	padding-left:25px;
 }
 
 .grd-bdy-rw-evn {
@@ -590,6 +597,235 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
   /* For general iPad layouts */
 }
 
+@media only screen and (min-device-width:320px) and (max-device-width:768px) {
+	
+header {
+    border-bottom: 1px solid #dadada;
+    box-shadow:0px 2px 5px 0px #9b9b9b;
+    font-size:0.85em;
+    padding: 8px 10px 8px 6px;
+    width: calc(100% - 16px);
+}
+
+.welcomtext {
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.ssFlg0{
+	display:none;
+}
+
+menu{
+	width:100%;
+	padding-right:0px;
+	height:34px;
+}
+
+.tb-actv, .top-tab:hover{
+	border-radius: 0px 0px 0px 0px;
+}
+.top-tab {
+	padding:4px 20px 4px 20px;
+	margin: 6px 5px 0px 5px;
+	height: 26px;
+	float: left;
+}
+
+.dt-sel, .ad-nw-btn{
+	padding: 5px 12px 5px 9px;
+	width: 22%;
+	/* height:21px; */
+	font-size: 14px;
+	margin-top: 2px;
+	float:left;
+}
+
+.ad-nw-btn{
+	text-align:center;
+	border-radius:2px;
+	float:right;
+}
+
+.add-new-deatil-main-con{
+	width: 84%;
+	font-size: 14px;
+	margin: 0px 8%;
+	left:0px;
+}
+
+.popup-body-inner-rw-lt, .popup-body-inner-rw-rt {
+    width: 100%;
+    float: left;
+}
+
+.inner-rw-label {
+    width: 65px;
+}
+
+.popup-slectBx {
+    width:calc(100% - 17px);
+}
+
+.popup-inpt {
+	width:calc(100% - 31px);
+}
+
+.popup-txtarea{
+	width:calc(100% - 35px);
+}
+
+.ui-widget{
+	font-size:14px;
+}
+
+.ui-datepicker{
+	width: 14em;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
+	width: 49%;
+}
+
+.inner-rw-val {
+    width: calc(100% - 95px);
+}
+
+.menu-srch-rw {
+	float: left;
+	width: 100%;
+	background: #086184;
+	font-size: 14px;
+	padding: 4px 0px;
+	color: #ffffff;
+}
+.srch-opt-blk {
+    float: left;
+	margin: 5px 0px 5px 0px;
+}
+.search-optn-txt {
+    float: left;
+}
+
+.search-optn {
+    margin: -2px 4px 0px 10px;
+    float: left;
+}
+
+.serach-bar {
+	float: right;
+	width: calc(100% - 220px);
+	margin: 1px 10px 0px 0px;
+}
+
+.serach-inpt {
+    float: left;
+    width: calc(100% - 6px);
+    border: 1px solid #dadada;
+    padding: 4px 5px;
+}
+
+
+.cstmr-info-main-con {
+  float: left;
+width: calc(100% - 16px);
+font-size: 13px;
+background: #fafafa;
+margin: 7px 8px 0px 8px;
+box-shadow: 0px 1px 4px 1px #acacac;
+}
+.cstmr-pic {
+	float: left;
+	width: 35px;
+	height: 32px;
+	border: 1px solid #dadada;
+	margin: 0px 10px 5px 0px;
+}
+.cstmr-actn {
+  float: right;
+  width: 80px;
+}
+.cstmr-detal {
+  float: left;
+  width:calc(100% - 16px);
+  padding:5px 8px
+}
+
+.name {
+  width: calc(100% - 100px);
+  font-weight: bold;
+  float: left;
+}
+
+.cntc-no {
+  font-size: 12px;
+  width: calc(100% - 110px);
+  float: left;
+  margin-top:0px;
+}
+
+.dn-chk{
+	float:left;
+}
+.dn-txt {
+    margin:2px 0px 0px 5px;
+    float: left;
+}
+
+.prdct {
+  float: left;
+  width: 100%;
+}
+
+
+.info-main-btm {
+    float: left;
+	width: calc(100% - 16px);
+	padding: 2px 8px;
+	background: #62bbe4;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.srvc-dtl {
+    font-size: 12px;
+	margin-right:2px;
+}
+
+.grd-rw {
+    width: 100%;
+	background-color:#D2DEDE;
+}
+
+.dash-main-body {
+	padding-bottom:25px;
+}
+
+footer {
+	padding: 1px 20px;
+	background: #dedde3;
+}
+
+.tday-hdng {
+    font-size: 0.85em;
+	margin: 6px 0px 0px 14px;
+}
+
+.filterarrow{
+	font-size:1.1em;
+	margin:-5px 0px 0px 0px;
+}
+
+.dd-list{
+	width: 120px;
+	top: 105px;
+	left:80px;
+}
+
+
+	
+}
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
   /* For portrait layouts only */
 }
@@ -597,3 +833,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
   /* For landscape layouts only */
 }
+

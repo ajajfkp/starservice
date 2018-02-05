@@ -3,7 +3,7 @@
 		<span class="frstLogo">Star</span>
 		<span class="scndLogo">Services</span>
 	</span>
-	<span id="signOut" class="signout" onclick="signout();">Sign Out</span>
+	<span id="signOut" class="signout ssFlg0" onclick="signout();">Sign Out</span>
 	<span class="sign-name right">
 		<span class="left">
 		<h6>Welcome!&nbsp;&nbsp;Mohd Khalid </h6>
@@ -18,12 +18,12 @@
 </header>
 
 <menu>
-	<span class="top-tab">Admin</span>
-	<span class="top-tab-sep">|</span>
+	<span class="top-tab ssFlg0">Admin</span>
+	<span class="top-tab-sep ssFlg0">|</span>
 	<span class="top-tab" ><a href="<?php echo base_url("product"); ?>">Product</a></span>
-	<span class="top-tab-sep">|</span>
+	<span class="top-tab-sep ssFlg0">|</span>
 	<span class="top-tab tb-actv"> <a href="<?php echo base_url("home"); ?>">Services</a></span>
-	<span class="top-tab-sep">|</span>
+	<span class="top-tab-sep ssFlg0">|</span>
 </menu>
 
 

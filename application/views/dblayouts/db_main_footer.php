@@ -1,1 +1,1 @@
-<footer>Copyright</footer>
+<footer>Powered by Globe Web Solutions, Copyright &#169; 2018 </footer>
