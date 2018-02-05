@@ -49,7 +49,7 @@
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
-					<img width="100%" src="E:/xampp/htdocs/starservice/images/myPic.jpg">
+					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
 				<span class="actn-rw">
@@ -69,7 +69,7 @@
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
-					<img width="100%" src="E:/xampp/htdocs/starservice/images/myPic.jpg">
+					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
 				<span class="actn-rw">
@@ -89,7 +89,7 @@
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
-					<img width="100%" src="E:/xampp/htdocs/starservice/images/myPic.jpg">
+					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
 				<span class="actn-rw">
@@ -109,7 +109,7 @@
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
-					<img width="100%" src="E:/xampp/htdocs/starservice/images/myPic.jpg">
+					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
 				<span class="actn-rw">
@@ -129,7 +129,7 @@
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
-					<img width="100%" src="E:/xampp/htdocs/starservice/images/myPic.jpg">
+					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
 				<span class="actn-rw">
@@ -149,7 +149,7 @@
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
-					<img width="100%" src="E:/xampp/htdocs/starservice/images/myPic.jpg">
+					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
 				<span class="actn-rw">

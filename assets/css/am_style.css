@@ -111,6 +111,7 @@ header {
 
 footer {
     border-top: 1px solid #dadada;
+	background: #dedde3;
     bottom: 0;
     font-size: 11px;
     padding: 5px 20px;
@@ -737,10 +738,13 @@ box-shadow: 0px 1px 4px 1px #acacac;
 }
 .cstmr-pic {
 	float: left;
-	width: 35px;
-	height: 32px;
-	border: 1px solid #dadada;
-	margin: 0px 10px 5px 0px;
+	margin:3px 5px 2px -4px;
+}
+.cstmr-pic-innr{
+	float: left;
+	border-radius: 31px;
+	width: 40px;
+	height: 40px;
 }
 .cstmr-actn {
   float: right;
@@ -765,6 +769,10 @@ box-shadow: 0px 1px 4px 1px #acacac;
   margin-top:0px;
 }
 
+.actn-rw {
+    float: right;
+}
+
 .dn-chk{
 	float:left;
 }
@@ -775,7 +783,8 @@ box-shadow: 0px 1px 4px 1px #acacac;
 
 .prdct {
   float: left;
-  width: 100%;
+  width: 75%;
+  margin-top: 3px;
 }
 
 
@@ -804,7 +813,6 @@ box-shadow: 0px 1px 4px 1px #acacac;
 
 footer {
 	padding: 1px 20px;
-	background: #dedde3;
 }
 
 .tday-hdng {

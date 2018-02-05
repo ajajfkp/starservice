@@ -40,6 +40,26 @@
 					</span>
 				</div>
 				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Sell Date:</span>
+					<span class="inner-rw-val">
+						<input type="text" name="dateSold" id="dateSold" class="popup-inpt">
+					</span>
+				</div>
+			</div>
+			<div class="popup-body-inner-rw-rt">
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Guaranty:</span>
+					<span class="inner-rw-val">
+						<select class="popup-slectBx" id="guaranty">
+							<option value=""></option>
+							<option value="0">No guaranty</option>
+							<option value="3">3 Months</option>
+							<option value="6">6 Months</option>
+							<option value="12">12 Months</option>
+						</select>
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
 					<span class="inner-rw-label">Warranty:</span>
 					<span class="inner-rw-val">
 						<select class="popup-slectBx" id="warranty">
@@ -49,14 +69,6 @@
 							<option value="6">6 Months</option>
 							<option value="12">12 Months</option>
 						</select>
-					</span>
-				</div>
-			</div>
-			<div class="popup-body-inner-rw-rt">
-				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Sell Date:</span>
-					<span class="inner-rw-val">
-						<input type="text" name="dateSold" id="dateSold" class="popup-inpt">
 					</span>
 				</div>
 				<div class="popup-body-inner-rw">
@@ -119,6 +131,12 @@
 						<textarea class="popup-txtarea" id="note"></textarea>
 					</span>
 				</div>
+			</div>
+			<div class="popup-body-inner-rw" style="margin-top: -3px;">
+				<span class="inner-rw-label">Pic:</span>
+				<span class="inner-rw-val">
+					<input type="file" name="cstmrImg" class="popup-inpt" id="cstmrImg">
+				</span>
 			</div>
 			<div class="popup-body-inr-hdng">
 				Additional Detail
