@@ -18,10 +18,10 @@ class Home extends CI_Controller {
 		/* echo "<pre>";
 		print_r($data['getServiceData']);die; */
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
-		if(isMobile()){
+		if(!$this->isMobile()){
 			$this->layouts->dbview('home/main_page',$data);
 		}else{
-			$this->layouts->dbview('home/main_page',$data);
+			$this->layouts->dbview('home/main_page_mobile',$data);
 		}
 		
 		
