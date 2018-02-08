@@ -381,17 +381,23 @@ class CommonModel extends CI_Model {
 	
 	function getservice($fromdate="",$todate=""){
 		if(!empty($todate)&&!empty($fromdate)){
-			$where = " and t1.sold_date BETWEEN '".$fromdate." and '".$fromdate."'";
+			$where = " and t2.service_date BETWEEN '".$fromdate." and '".$fromdate."'";
 		}else if(!empty($fromdate)){
-			$where = " and t1.sold_date='".$fromdate."'";
+			$where = " and t2.service_date <= '".$fromdate."'";
 		}else{
 			$where = "";
 		}
-		$query="select * from services t1
-			inner join customer t2 on t1.customer_id=t2.id where status='1' and  warranty!='0' $where";
+		$query="select t1.id serId,t2.id serDetId,t3.name custname,t3.mobile contact,t3.address,t4.name product,t5.name brand,t1.modelnumber,
+		t1.sold_date purchase,t1.warranty,t1.guaranty,t2.service_date,t1.warranty_exp 
+		from services t1 
+		inner join service_details t2 on t1.id=t2.service_id 
+		inner join customer t3 on t3.id=t1.customer_id 
+		inner join product t4 on t4.id=t1.product_id
+		inner join brand t5 on t5.id=t1.brand_id where status='1' and  warranty!='0' and  guaranty!='0' $where";
+			//echo $query;
 			$resultSet=$this->db->query($query);
 		if($resultSet->num_rows()>0){
-			return $resultSet->result();
+			return $resultSet->result_array();
 		}else{
 			return false;
 		}

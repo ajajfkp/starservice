@@ -1150,4 +1150,9 @@ ADD `referral_other` varchar(255) COLLATE 'utf8_general_ci' NOT NULL AFTER `refe
 
 ALTER TABLE `services`
 ADD `warranty_exp` date NOT NULL AFTER `sold_date`;
+/* =============================================================================== */
+ALTER TABLE `customer`
+ADD `user_image` varchar(255) COLLATE 'utf8_general_ci' NULL AFTER `address`;
 
+ALTER TABLE `services`
+ADD `guaranty` int(11) NOT NULL AFTER `warranty`;

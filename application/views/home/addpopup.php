@@ -136,6 +136,7 @@
 				<span class="inner-rw-label">Pic:</span>
 				<span class="inner-rw-val">
 					<input type="file" name="cstmrImg" class="popup-inpt" id="cstmrImg">
+					<input type="hidden" name="userImg" id="userImg">
 				</span>
 			</div>
 			<div class="popup-body-inr-hdng">

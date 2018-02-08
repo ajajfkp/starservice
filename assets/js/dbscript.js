@@ -1,5 +1,42 @@
 $( document ).ready(function(){
 	
+	$(document.body).on('change','#cstmrImg', function(){
+		var property = this.files[0];
+		var imgName = property.name;
+		var img_ext = imgName.split(".").pop().toLowerCase();
+		if($.inArray(img_ext,['png','jpg','jpeg'])== -1){
+			alert('Invalid image file');
+			return false;
+		}
+		if(property.sige > 1024*1024){
+			alert('Image file sige is very big');
+			return false;
+		}
+		var form_data = new FormData();
+		form_data.append("cstmrImg",property);
+		$.ajax({
+			type: "POST",
+			url: base_url+'home/uploadUserImg',
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: form_data,
+			success: function(msg){
+				var jsonObj = $.parseJSON(msg);
+				if("error" == jsonObj.error){
+					alert("Image not upload");
+					$("#cstmrImg").val('');
+				}else{
+					$("#userImg").val(jsonObj.file_name);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				setUiMessege('err',errorThrown);
+			}
+		});
+		
+	});
+	
 	$("#addNewSer").click(function(){
 		$.ajax({
 			type: "POST",
@@ -92,14 +129,16 @@ function saveeservicepopup(){
 				product:$("#product").val(),
 				brand:$("#brand").val(),
 				modelNum:$("#modelNum").val(),
-				warranty:$("#warranty").val(),
 				dateSold:$("#dateSold").val(),
+				guaranty:$("#guaranty").val(),
+				warranty:$("#warranty").val(),
 				services:$("#services").val(),
 				duration:$("#duration").val(),
 				name:$("#name").val(),
 				addr:$("#addr").val(),
 				mobile:$("#mobile").val(),
 				note:$("#note").val(),
+				userImg:$("#userImg").val(),
 				referral:$("#referral").val(),
 				referralotr:$("#referralotr").val()
 			},

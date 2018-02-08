@@ -14,7 +14,7 @@ class Home extends CI_Controller {
 		//$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
 		
-		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-02-04"));
+		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-04-04"));
 		/* echo "<pre>";
 		print_r($data['getServiceData']);die; */
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
@@ -25,6 +25,29 @@ class Home extends CI_Controller {
 		}
 		
 		
+	}
+	
+	public function uploadUserImg(){
+		//print_r($_FILES['cstmrImg']);
+		
+		$config['upload_path']          = './uploads/userimg/';
+		$config['allowed_types']        = 'jpeg|JPEG|jpg|JPG|png|PNG';
+		$config['max_size']             = '*';
+		$config['max_width']            = '*';
+		$config['max_height']           = '*';
+		$config['encrypt_name'] 		= TRUE;
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('cstmrImg')) {
+			$error = array('error' => $this->upload->display_errors());
+			echo json_encode($error);
+		} else {
+			$data = $this->upload->data();
+			if($data){
+				echo json_encode($data);
+			}else{
+				echo json_encode( array('error' =>'File not upload'));
+			}
+        }
 	}
 	
 	public function openaddservice(){
@@ -71,19 +94,21 @@ class Home extends CI_Controller {
 			"name"=>$this->input->post('name'),
 			"mobile"=>$this->input->post('mobile'),
 			"address"=>$this->input->post('addr'),
+			"user_image"=>$this->input->post('userImg'),
 			"date_added"=>date("Y-m-d H:i:s"),
 			"added_by"=>$this->utilities->getSessionUserData('uid')
 		);
 		
 		$custId = $this->commonModel->insertRecord('customer',$custArr);
 		
-		if(1==1){
+		if($custId){
 			$serDataArr = Array();
-			$serDataArr['customer_id'] = "";//$custId;
+			$serDataArr['customer_id'] = $custId;
 			$serDataArr['product_id'] = $this->input->post('product');
 			$serDataArr['brand_id'] = $this->input->post('brand');
 			$serDataArr['modelnumber'] = $this->input->post('modelNum');
 			$serDataArr['warranty'] = $this->input->post('warranty');
+			$serDataArr['guaranty'] = $this->input->post('guaranty');
 			$serDataArr['sold_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
 			$serDataArr['num_of_services'] = $this->input->post('services');
 			$serDataArr['duration'] = $this->input->post('duration');
