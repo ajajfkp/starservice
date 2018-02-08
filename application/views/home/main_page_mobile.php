@@ -52,14 +52,26 @@
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
+				<span class="actn-rw-dp mblActnitem">
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+				</span>
+				<span class="mblActnlst hide">
+					<ul>
+						<li class="dd-listing">View</li>
+						<li class="dd-listing">Edit</li>
+						<li class="dd-listing">Delete</li>
+					</ul>
+				</span>
+				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
+				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
 					</span>
 					<span class="dn-txt">Done</span>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 			</div>
 			<div class="info-main-btm">
 				<span class="srvc-dtl">Last Service:15-09-2017</span>
@@ -72,14 +84,26 @@
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
+				<span class="actn-rw-dp mblActnitem">
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+				</span>
+				<span class="mblActnlst hide">
+					<ul>
+						<li class="dd-listing">View</li>
+						<li class="dd-listing">Edit</li>
+						<li class="dd-listing">Delete</li>
+					</ul>
+				</span>
+				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
+				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
 					</span>
 					<span class="dn-txt">Done</span>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 			</div>
 			<div class="info-main-btm">
 				<span class="srvc-dtl">Last Service:15-09-2017</span>
@@ -92,14 +116,26 @@
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
+				<span class="actn-rw-dp mblActnitem">
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+				</span>
+				<span class="mblActnlst hide">
+					<ul>
+						<li class="dd-listing">View</li>
+						<li class="dd-listing">Edit</li>
+						<li class="dd-listing">Delete</li>
+					</ul>
+				</span>
+				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
+				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
 					</span>
 					<span class="dn-txt">Done</span>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 			</div>
 			<div class="info-main-btm">
 				<span class="srvc-dtl">Last Service:15-09-2017</span>
@@ -112,14 +148,26 @@
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
+				<span class="actn-rw-dp mblActnitem">
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+				</span>
+				<span class="mblActnlst hide">
+					<ul>
+						<li class="dd-listing">View</li>
+						<li class="dd-listing">Edit</li>
+						<li class="dd-listing">Delete</li>
+					</ul>
+				</span>
+				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
+				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
 					</span>
 					<span class="dn-txt">Done</span>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 			</div>
 			<div class="info-main-btm">
 				<span class="srvc-dtl">Last Service:15-09-2017</span>
@@ -132,14 +180,26 @@
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
+				<span class="actn-rw-dp mblActnitem">
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+				</span>
+				<span class="mblActnlst hide">
+					<ul>
+						<li class="dd-listing">View</li>
+						<li class="dd-listing">Edit</li>
+						<li class="dd-listing">Delete</li>
+					</ul>
+				</span>
+				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
+				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
 					</span>
 					<span class="dn-txt">Done</span>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 			</div>
 			<div class="info-main-btm">
 				<span class="srvc-dtl">Last Service:15-09-2017</span>
@@ -152,14 +212,26 @@
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
 				<span class="name">Mohammad Kashif</span>
+				<span class="actn-rw-dp mblActnitem">
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+					<span class="dp-dt"></span>
+				</span>
+				<span class="mblActnlst hide">
+					<ul>
+						<li class="dd-listing">View</li>
+						<li class="dd-listing">Edit</li>
+						<li class="dd-listing">Delete</li>
+					</ul>
+				</span>
+				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
+				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
 					</span>
 					<span class="dn-txt">Done</span>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
 			</div>
 			<div class="info-main-btm">
 				<span class="srvc-dtl">Last Service:15-09-2017</span>

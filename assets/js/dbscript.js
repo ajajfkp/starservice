@@ -49,6 +49,10 @@ $( document ).ready(function(){
 		$('#passwrdPopup').show();
 		$('#changePaswrd').hide();	
 	});
+	
+	$('.mblActnitem').click(function(){
+		$('.mblActnlst').slideToggle('slow');	
+	});
 
 });
 

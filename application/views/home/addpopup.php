@@ -132,7 +132,7 @@
 					</span>
 				</div>
 			</div>
-			<div class="popup-body-inner-rw" style="margin-top: -3px;">
+			<div class="popup-body-inner-rw">
 				<span class="inner-rw-label">Pic:</span>
 				<span class="inner-rw-val">
 					<input type="file" name="cstmrImg" class="popup-inpt" id="cstmrImg">
