@@ -1,8 +1,3 @@
-
-<?php
-//print_r($getServiceData);die;
-?>
-
 <div class="dash-main-body left">
 	<div class="left tp-rw">
 		<span class="tday-hdng left">Services: </span>
@@ -46,12 +41,16 @@
 		</span>
 	</div>
 	<div class="left grd-rw">
+	<?php 
+		if($getServiceData){
+			foreach($getServiceData as $getService){
+	?>
 		<div class="cstmr-info-main-con">
 			<div class="cstmr-detal">
 				<span class="cstmr-pic">
 					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
 				</span>
-				<span class="name">Mohammad Kashif</span>
+				<span class="name"><?php echo ucfirst($getService['custname']); ?></span>
 				<span class="actn-rw-dp mblActnitem">
 					<span class="dp-dt"></span>
 					<span class="dp-dt"></span>
@@ -64,8 +63,8 @@
 						<li class="dd-listing">Delete</li>
 					</ul>
 				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
+				<span class="cntc-no"><?php echo ucfirst($getService['contact']).", ".$getService['address']; ?></span>
+				<span class="prdct"><?php echo ucfirst($getService['brand'])." ".$getService['product'],", "; ?> Guaranty: <?php echo $getService['warranty']." + ".$getService['guaranty']; ?></span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox">
@@ -74,255 +73,13 @@
 				</span>
 			</div>
 			<div class="info-main-btm">
-				<span class="srvc-dtl">Last Service:15-09-2017</span>
-				<span class="srvc-dtl right">Next Service: <b>14-12-2017</b></span>
+				<span class="srvc-dtl">Last Service:<?php echo $this->utilities->getNextPrevService($getService['serId'],$getService['serDetId'],'prev');?></span>
+				<span class="srvc-dtl right">Next Service: <b><?php echo $this->utilities->getNextPrevService($getService['serId'],$getService['serDetId'],'next');?></b></span>
 			</div>
 		</div>
-		<div class="cstmr-info-main-con">
-			<div class="cstmr-detal">
-				<span class="cstmr-pic">
-					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-				</span>
-				<span class="name">Mohammad Kashif</span>
-				<span class="actn-rw-dp mblActnitem">
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-				</span>
-				<span class="mblActnlst hide">
-					<ul>
-						<li class="dd-listing">View</li>
-						<li class="dd-listing">Edit</li>
-						<li class="dd-listing">Delete</li>
-					</ul>
-				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
-				<span class="actn-rw">
-					<span class="dn-chk">
-						<input type="checkbox">
-					</span>
-					<span class="dn-txt">Done</span>
-				</span>
-			</div>
-			<div class="info-main-btm">
-				<span class="srvc-dtl">Last Service:15-09-2017</span>
-				<span class="srvc-dtl right">Next Service: <b>14-12-2017</b></span>
-			</div>
-		</div>
-		<div class="cstmr-info-main-con">
-			<div class="cstmr-detal">
-				<span class="cstmr-pic">
-					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-				</span>
-				<span class="name">Mohammad Kashif</span>
-				<span class="actn-rw-dp mblActnitem">
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-				</span>
-				<span class="mblActnlst hide">
-					<ul>
-						<li class="dd-listing">View</li>
-						<li class="dd-listing">Edit</li>
-						<li class="dd-listing">Delete</li>
-					</ul>
-				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
-				<span class="actn-rw">
-					<span class="dn-chk">
-						<input type="checkbox">
-					</span>
-					<span class="dn-txt">Done</span>
-				</span>
-			</div>
-			<div class="info-main-btm">
-				<span class="srvc-dtl">Last Service:15-09-2017</span>
-				<span class="srvc-dtl right">Next Service: <b>14-12-2017</b></span>
-			</div>
-		</div>
-		<div class="cstmr-info-main-con">
-			<div class="cstmr-detal">
-				<span class="cstmr-pic">
-					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-				</span>
-				<span class="name">Mohammad Kashif</span>
-				<span class="actn-rw-dp mblActnitem">
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-				</span>
-				<span class="mblActnlst hide">
-					<ul>
-						<li class="dd-listing">View</li>
-						<li class="dd-listing">Edit</li>
-						<li class="dd-listing">Delete</li>
-					</ul>
-				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
-				<span class="actn-rw">
-					<span class="dn-chk">
-						<input type="checkbox">
-					</span>
-					<span class="dn-txt">Done</span>
-				</span>
-			</div>
-			<div class="info-main-btm">
-				<span class="srvc-dtl">Last Service:15-09-2017</span>
-				<span class="srvc-dtl right">Next Service: <b>14-12-2017</b></span>
-			</div>
-		</div>
-		<div class="cstmr-info-main-con">
-			<div class="cstmr-detal">
-				<span class="cstmr-pic">
-					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-				</span>
-				<span class="name">Mohammad Kashif</span>
-				<span class="actn-rw-dp mblActnitem">
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-				</span>
-				<span class="mblActnlst hide">
-					<ul>
-						<li class="dd-listing">View</li>
-						<li class="dd-listing">Edit</li>
-						<li class="dd-listing">Delete</li>
-					</ul>
-				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
-				<span class="actn-rw">
-					<span class="dn-chk">
-						<input type="checkbox">
-					</span>
-					<span class="dn-txt">Done</span>
-				</span>
-			</div>
-			<div class="info-main-btm">
-				<span class="srvc-dtl">Last Service:15-09-2017</span>
-				<span class="srvc-dtl right">Next Service: <b>14-12-2017</b></span>
-			</div>
-		</div>
-		<div class="cstmr-info-main-con">
-			<div class="cstmr-detal">
-				<span class="cstmr-pic">
-					<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-				</span>
-				<span class="name">Mohammad Kashif</span>
-				<span class="actn-rw-dp mblActnitem">
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-					<span class="dp-dt"></span>
-				</span>
-				<span class="mblActnlst hide">
-					<ul>
-						<li class="dd-listing">View</li>
-						<li class="dd-listing">Edit</li>
-						<li class="dd-listing">Delete</li>
-					</ul>
-				</span>
-				<span class="cntc-no">9871902082, M-292 sector25, Noida</span>
-				<span class="prdct">Mickrotek Inverter, Guaranty: 36+12</span>
-				<span class="actn-rw">
-					<span class="dn-chk">
-						<input type="checkbox">
-					</span>
-					<span class="dn-txt">Done</span>
-				</span>
-			</div>
-			<div class="info-main-btm">
-				<span class="srvc-dtl">Last Service:15-09-2017</span>
-				<span class="srvc-dtl right">Next Service: <b>14-12-2017</b></span>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div class="container" style="margin-top: 50px;">
-	<div class="panel-heading">
-		<div class="row">
-			<nav class="navbar navbar-default" role="navigation" style="min-height: 0;border-radius: 10px;">
-				<a class="btn btn-lg btn-success" href="javascript:void(0);" id="addNewSer">
-					<i class="glyphicon glyphicon-plus"></i>&nbsp;Add New Service
-				</a>
-			</nav>
-		</div>
-	</div>
-	<div class="row">
-        <div class="col-md-12">
-		<?php
-			foreach($getServiceData as $serviceData){
-		?>
-			<div class="card">
-				<h3 class="card-header"><?php echo ucfirst($serviceData['name']);?></h3>
-				<div class="card-block">
-					<h4 class="card-title"><?php echo "+91 ".$serviceData['contact'];?></h4>
-					<p class="card-text"><?php echo date("d-M-Y",strtotime($serviceData['service_date']));?></p>
-					<p class="card-text"><?php echo $serviceData['address'];?></p>
-				</div>
-			</div>
-		<?php
+	<?php
 			}
-		?>
-        </div>
+		}
+	?>
 	</div>
 </div>
-    
-    
-    
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-      </div>
-          <div class="modal-body">
-       
-       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-       
-      </div>
-        <div class="modal-footer ">
-        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-      </div>
-        </div>
-    <!-- /.modal-content --> 
-  <!--</div>
-      <!-- /.modal-dialog --> 
-   <!-- </div>-->

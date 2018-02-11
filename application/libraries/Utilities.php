@@ -359,10 +359,41 @@ class Utilities {
 		}else{
 			return false;
 		}
-		
 	}
 	
+	function getNextPrevService($serId="",$serDetId="",$type="next"){
+		if($serId&&$serDetId){
+			$serviseArr = Array();
+			$getSerDataArr = $this->CI->commonModel->getRecord("service_details","*",array("service_id"=>$serId),"","","","array","1");
+			//print_r($getSerDataArr);
+			if($getSerDataArr){
+				foreach($getSerDataArr as $getSerData){
+					$serviseArr[$getSerData['id']] = $this->showDateForSpecificTimeZone($getSerData['service_date']);
+				}
+			}
+			
+			if($type=="next"){
+				$newIndex = $this->getAdjascentKey($serDetId,$serviseArr,+1);
+			}else{
+				$newIndex = $this->getAdjascentKey($serDetId,$serviseArr,-1);
+			}
+
+			return (($newIndex && $serviseArr[$newIndex])?$serviseArr[$newIndex]:false);
+		}else{
+			return false;
+		}
+	}
 	
+	function getAdjascentKey( $key, $hash = array(), $increment ) {
+		$keys = array_keys( $hash );    
+		$found_index = array_search( $key, $keys );
+		if ( $found_index === false ) {
+			return false;
+		}
+		$newindex = $found_index+$increment;
+		// returns false if no result found
+		return ($newindex > 0 && $newindex < sizeof($hash)) ? $keys[$newindex] : false;
+	}
 	
 	
 	
