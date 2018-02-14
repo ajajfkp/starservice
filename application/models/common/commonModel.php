@@ -428,7 +428,16 @@ class CommonModel extends CI_Model {
 	}
 	
 	
-	
+	function getUserDataById($userId){
+		$sql = 'SELECT * FROM users t1 WHERE t1.id="'.$userId.'"';
+		$query = $this->db->query($sql);
+		if($query->num_rows() > 0){
+			return $query->row_array();
+		}else{
+			return false;
+		}
+		
+	}
 	
 		
 	

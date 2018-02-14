@@ -36,18 +36,18 @@ class Utilities {
 	}
 	
 	function getUserTypeAndStatus(){
-			if($this->getSessionUserData('user_type')=='1'){
-				$return['user_type'] = 'admin';
-			}elseif($this->getSessionUserData('user_type')=='0'){
-				$return['user_type'] = 'user';
-			}
-			if($this->getSessionUserData('active_status')=='0'){
-				$return['active_status'] = 'active';
-			}elseif($this->getSessionUserData('active_status')=='1'){
-				$return['active_status'] = 'inactive';
-			}elseif($this->getSessionUserData('active_status')=='2'){
-				$return['active_status'] = 'delete';
-			}
+		if($this->getSessionUserData('user_type')=='1'){
+			$return['user_type'] = 'admin';
+		}elseif($this->getSessionUserData('user_type')=='0'){
+			$return['user_type'] = 'user';
+		}
+		if($this->getSessionUserData('active_status')=='0'){
+			$return['active_status'] = 'active';
+		}elseif($this->getSessionUserData('active_status')=='1'){
+			$return['active_status'] = 'inactive';
+		}elseif($this->getSessionUserData('active_status')=='2'){
+			$return['active_status'] = 'delete';
+		}
 		return $return;
 	}
 	

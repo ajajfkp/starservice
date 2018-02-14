@@ -6,7 +6,8 @@
 	<span id="signOut" class="signout ssFlg0" onclick="signout();">Sign Out</span>
 	<span class="sign-name right">
 		<span class="left">
-		<h6>Welcome!&nbsp;&nbsp;Mohd Khalid </h6>
+		<?php $userdata = $this->utilities->getSessionUserData(); ?>
+		<h6>Welcome!&nbsp;&nbsp; <?php echo ucfirst($this->utilities->getSessionUserData('user_name'));?></h6>
 		</span>
 		<span class="right prfl-pasrd-arw">&#9660; </span>
 	</span>
