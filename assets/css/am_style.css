@@ -605,6 +605,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
     width: calc(100% - 180px);
 }
 
+.view-servc-dtl {
+    float: left;
+}
+
 
 @media only screen and (device-width: 768px) {
   /* For general iPad layouts */
@@ -647,10 +651,10 @@ menu{
 }
 
 .dt-sel, .ad-nw-btn{
-	padding: 5px 12px 5px 9px;
-	width: 22%;
+	padding: 5px 9px 5px 9px;
+	width:80px;
 	/* height:21px; */
-	font-size: 14px;
+	font-size: 13px;
 	margin-top: 2px;
 	float:left;
 }
@@ -766,13 +770,15 @@ box-shadow: 0px 1px 4px 1px #acacac;
 .cstmr-detal {
   float: left;
   width:calc(100% - 16px);
-  padding:10px 8px
+  padding:10px 8px;
+  color: #333333;
 }
 
 .name {
   width: calc(100% - 100px);
   font-weight: bold;
   float: left;
+   color: #111111;
 }
 
 .cntc-no {
@@ -796,7 +802,7 @@ box-shadow: 0px 1px 4px 1px #acacac;
 
 .prdct {
   float: left;
-  width: 75%;
+  width: 65%;
   margin-top: 3px;
 }
 
@@ -838,7 +844,7 @@ footer {
 
 .filterarrow{
 	font-size:1.1em;
-	margin:-5px 0px 0px 0px;
+	margin:-3px 0px 0px 0px;
 }
 
 .dd-list{
@@ -872,14 +878,36 @@ footer {
 }
 
 .mblActnlst {
-    width: 90px;
-    top: 178px;
-    left: 0px;
-    right: -244px;
+	width: 90px;
+	top: 5px;
+	left: 0px;
+	right: -244px;
+	position: relative;
 }
 
 .mblActnlst ul{
 	list-style:none;
+}
+
+.mblActnlst-lnk {
+    float: right;
+    margin-right: 7px;
+    border-left: 1px solid;
+    padding-left: 7px;
+	cursor:pointer;
+}
+
+.heading {
+    font-size: 1.1em;
+    font-weight: lighter;
+}
+
+.viewInfo {
+    font-size: 1em;
+}
+
+#viewEntry .inner-rw-label {
+    width: 95px;
 }
 
 	
