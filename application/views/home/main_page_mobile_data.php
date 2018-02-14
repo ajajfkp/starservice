@@ -21,7 +21,7 @@
 					</ul>
 				</span>
 				<span class="cntc-no"><?php echo ucfirst($getService['contact']).", ".$getService['address']; ?></span>
-				<span class="prdct"><?php echo ucfirst($getService['brand'])." ".$getService['product'],", "; ?> Guaranty: <?php echo $getService['warranty']." + ".$getService['guaranty']; ?></span>
+				<span class="prdct"><?php echo ucfirst($getService['brand'])." ".$getService['product'],", "; ?> Guaranty: <?php echo $getService['guaranty']." + ".$getService['warranty']; ?></span>
 				<span class="actn-rw">
 					<span class="dn-chk">
 						<input type="checkbox" <?php echo (($getService['done_status']=="1")?"checked":"");?>>
