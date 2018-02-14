@@ -9,6 +9,9 @@
 			</div>
 			
 			<div class="popup-body-inner-rw">
+				<span class="viewInfo-cstmrpic">
+					<img src="" class="cstmr-pic-dsk">
+				</span>
 				<span class="viewInfo">
 					<b>Mohd Kashif</b></br>
 					Mobile #: 9871902082</br>

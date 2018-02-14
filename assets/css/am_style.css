@@ -381,7 +381,7 @@ footer {
     font-size: 1.1em;
     color: #333;
     margin-left: 15px;
-    width: 80%;
+    width: calc(100% - 110px);
     float: left;
 	line-height: 21px;
 }
@@ -607,6 +607,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
 
 .view-servc-dtl {
     float: left;
+}
+
+.viewInfo-cstmrpic {
+    float: right;
+    width: 72px;
+    margin-right: 10px;
+}
+
+.cstmr-pic-dsk {
+    float: left;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #dadada;
 }
 
 
