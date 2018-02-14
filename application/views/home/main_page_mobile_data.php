@@ -30,8 +30,11 @@
 				</span>
 			</div>
 			<div class="info-main-btm">
-				<span class="srvc-dtl <?php echo ((strtotime($this->utilities->showDateForSpecificTimeZone($getService['service_date'])) < strtotime(date("d-m-Y")))?"red":"");?>">Service Date:<?php echo $this->utilities->showDateForSpecificTimeZone($getService['service_date']);?></span>
+				<span class="srvc-dtl <?php echo ((strtotime($this->utilities->showDateForSpecificTimeZone($getService['service_date'])) < strtotime(date("d-m-Y")))?"red":"");?>">Service:<?php echo $this->utilities->showDateForSpecificTimeZone($getService['service_date']);?></span>
 				<!--<span class="srvc-dtl right">Next Service: <b><?php echo $this->utilities->getNextPrevService($getService['serId'],$getService['serDetId'],'next');?></b></span>-->
+					<span class="mblActnlst-lnk" onClick="deleteRow('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">Delete</span>
+					<span class="mblActnlst-lnk" onClick="editDetail('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">Edit</span>
+					<span class="mblActnlst-lnk" onClick="viewDetail('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">View</span>
 			</div>
 		</div>
 	<?php
