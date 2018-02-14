@@ -2,17 +2,17 @@
 	<div class="left tp-rw">
 		<span class="tday-hdng left">Services: </span>
 		<span class="dt-sel left" id="serviceDatecal">
-			<span class="filtertxt left">Today</span>
+			<span class="filtertxt left" id="dateFltrText">Today</span>
 			<span class="right">&#9660; </span>
 		</span>
 		<span class="dd-list hide" id="serviceDatelst">
 			<ul>
-				<li class="dd-listing">Today</li>
-				<li class="dd-listing">Tomorrow</li>
-				<li class="dd-listing">This week</li>
-				<li class="dd-listing">This Month</li>
-				<li class="dd-listing">Last Month</li>
-				<li class="dd-listing">This year</li>
+				<li class="dd-listing" onclick="getServiceList('TD','Today');">Today</li>
+				<li class="dd-listing" onclick="getServiceList('TR','Tomorrow');">Tomorrow</li>
+				<li class="dd-listing" onclick="getServiceList('TW','This week');">This week</li>
+				<li class="dd-listing" onclick="getServiceList('TM','This Month');">This Month</li>
+				<li class="dd-listing" onclick="getServiceList('LM','Last Month');">Last Month</li>
+				<li class="dd-listing" onclick="getServiceList('TY','This year');">This year</li>
 			</ul>
 		</span>
 		<span class="ad-nw-btn right" id="addNewSer">Add new</span>
@@ -33,32 +33,8 @@
 					<th align="left" valign="top">Action</th>	
 				</tr>
 			</thead>
-			<tbody class="grid-bdy">
-			<?php 
-				if($getServiceData){
-					foreach($getServiceData as $getService){
-			?>
-				<tr class="grd-bdy-rw">
-					<td align="left" valign="top"><?php echo ucfirst($getService['custname']); ?></td>
-					<td align="left" valign="top"><?php echo $getService['contact']; ?></td>
-					<td align="left" valign="top"><?php echo $getService['address']; ?></td>
-					<td align="left" valign="top"><?php echo ucfirst($getService['product']); ?></td>
-					<td align="left" valign="top"><?php echo ucfirst($getService['brand']); ?></td>
-					<td align="left" valign="top"><?php echo ucfirst($getService['modelnumber']); ?></td>
-					<td align="left" valign="top"><?php echo $this->utilities->showDateForSpecificTimeZone($getService['purchase']); ?></td>
-					<td align="left" valign="top"><?php echo $this->utilities->showDateForSpecificTimeZone($getService['warranty_exp']); ?></td>
-					<td align="left" valign="top"><?php echo $this->utilities->showDateForSpecificTimeZone($getService['service_date']); ?></td>
-					<td align="left" valign="top">
-						<span class="cursor" onClick="viewDetail('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">View |</span>
-						<span class="cursor" onClick="editDetail('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">Edit |</span>
-						<span class="cursor" onClick="updateService('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">Update | </span>
-						<span class="cursor red" onClick="deleteRow('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">&#10008;</span>
-					</td>
-				</tr>
-			<?php
-					}
-				}
-			?>
+			<tbody class="grid-bdy" id="defaultDataView">
+			
 			</tbody>
 		</table>
 	</div>

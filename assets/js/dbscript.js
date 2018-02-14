@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-	
+	getDefaultData();
 	$(document.body).on('change','#cstmrImg', function(){
 		var property = this.files[0];
 		var imgName = property.name;
@@ -55,6 +55,7 @@ $( document ).ready(function(){
 			}
 		});
 	});
+	
 	$(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #addNewEntry").remove();
 	});
@@ -90,8 +91,33 @@ $( document ).ready(function(){
 	$('.mblActnitem').click(function(){
 		$('.mblActnlst').slideToggle('slow');	
 	});
-
+	$("#searchinput").on("keyup",function(){
+		var inputval = $(this).val();
+		var searchby = $(".searchby:radio:checked").val();
+		setTimeout(function(){
+			if(!!inputval){
+				$.ajax({
+					type: "POST",
+					url: base_url+'home/getServiceListByInput',
+					data: {
+						inputval:inputval,
+						searchby:searchby
+					},
+					success: function(msg){
+						$("#defaultDataView").html(msg);
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+						setUiMessege('err',errorThrown);
+					}
+				});
+			}else{
+				getDefaultData();
+			}
+		}, 500);
+	});
 });
+
+
 
 function getBrandList(prodId){
 	$.ajax({
@@ -146,10 +172,10 @@ function saveeservicepopup(){
 				var jsonObj = $.parseJSON(msg);
 				if(jsonObj.status=="success"){
 					closeservicepopup();
-					setUiMessege('suc',jsonObj.msg);
+					//setUiMessege('suc',jsonObj.msg);
 					window.location = base_url+"home";
 				}else{
-					setUiMessege('err',jsonObj.msg);
+					//setUiMessege('err',jsonObj.msg);
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -306,3 +332,33 @@ function deleteservic(id){
 	});
  }
  
+function getServiceList(val,text){
+	$("#dateFltrText").text(text);
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/getServiceList',
+		data: {
+			type:val
+		},
+		success: function(msg){
+			$("#defaultDataView").html(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}
+
+function getDefaultData(){
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/getDefaultData',
+		data: {},
+		success: function(msg){
+			$("#defaultDataView").html(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}

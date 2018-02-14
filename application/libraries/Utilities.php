@@ -239,7 +239,7 @@ class Utilities {
 		}
     }
 	
-	function showDateForSpecificTimeZone($dateTime, $userDefinedDateFormat = 'm-d-Y',$mdyTo=false,$userDefinedTimeZone='') {
+	function showDateForSpecificTimeZone($dateTime, $userDefinedDateFormat = 'd-m-Y',$mdyTo=false,$userDefinedTimeZone='') {
 		if($dateTime=='0000-00-00' || $dateTime=='0000-00-00 00:00:00' || $dateTime=='' || $dateTime=='0'){
 			return "";
 		}

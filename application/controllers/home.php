@@ -13,8 +13,7 @@ class Home extends CI_Controller {
 		//$extraHead = "activateHeadMeanu('topsignin')";
 		//$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
-		
-		$data['getServiceData'] = $this->commonModel->getservice(Date("2018-04-04"));
+		$data['datas'] = "";	
 		/* echo "<pre>";
 		print_r($data['getServiceData']);die; */
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
@@ -23,13 +22,41 @@ class Home extends CI_Controller {
 		}else{
 			$this->layouts->dbview('home/main_page_mobile',$data);
 		}
-		
-		
+	}
+	
+	function getDefaultData(){
+		$data['getServiceData'] = $this->commonModel->getservice(Date("Y-m-d"));
+		if(!$this->isMobile()){
+			echo $this->load->view('home/main_page_data',$data,true);
+		}else{
+			echo $this->load->view('home/main_page_mobile_data',$data,true);
+		}
+	}
+	
+	function getServiceList(){
+		$date=$this->input->post('type');
+		$dateArr = $this->getDateBySerch($date);
+		$data['getServiceData'] = $this->commonModel->getservice($dateArr['fromDate'],$dateArr['toDate']);
+		if(!$this->isMobile()){
+			echo $this->load->view('home/main_page_data',$data,true);
+		}else{
+			echo $this->load->view('home/main_page_mobile_data',$data,true);
+		}
+	}
+	
+	function getServiceListByInput(){
+		$inputval=$this->input->post('inputval');
+		$searchby=$this->input->post('searchby');
+		$data['getServiceData'] = $this->commonModel->getservicebyinput($inputval,$searchby);
+		if(!$this->isMobile()){
+			echo $this->load->view('home/main_page_data',$data,true);
+		}else{
+			echo $this->load->view('home/main_page_mobile_data',$data,true);
+		}
 	}
 	
 	public function uploadUserImg(){
 		//print_r($_FILES['cstmrImg']);
-		
 		$config['upload_path']          = './uploads/userimg/';
 		$config['allowed_types']        = 'jpeg|JPEG|jpg|JPG|png|PNG';
 		$config['max_size']             = '*';
@@ -222,5 +249,40 @@ class Home extends CI_Controller {
 		}else{
 			return false;
 		}
+	}
+	
+	function getDateBySerch($type="TD"){
+		$retArr = array();
+		switch($type){
+			case "TD" :
+				$retArr['fromDate'] = Date('Y-m-d');
+				$retArr['toDate'] ="";
+			break;
+			case "TR" :
+				$retArr['fromDate'] = date( "Y-m-d", strtotime("tomorrow"));
+				$retArr['toDate'] ="";
+			break;
+			case "TW" :
+				$retArr['fromDate'] = date("Y-m-d",strtotime('monday this week'));
+				$retArr['toDate'] = date("Y-m-d",strtotime("sunday this week"));
+			break;
+			case "TM" :
+				$retArr['fromDate'] = date('Y-m-01');
+				$retArr['toDate'] = date('Y-m-t');
+			break;
+			case "LM" :
+				$retArr['fromDate'] = date('Y-m-d', strtotime('first day of last month'));
+				$retArr['toDate'] = date('Y-m-d', strtotime('last day of last month'));
+			break;
+			case "TY" :
+				$retArr['fromDate'] = date('Y-m-d', strtotime('first day of january this year'));
+				$retArr['toDate'] = date('Y-m-d', strtotime('last day of december this year'));
+			break;
+			default:
+				$retArr['fromDate'] = Date('Y-m-d');
+				$retArr['toDate'] ="";
+			break;
+		}
+		return $retArr;
 	}
 }

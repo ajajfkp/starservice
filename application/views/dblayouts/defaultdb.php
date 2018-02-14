@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script>
 			var base_url = "<?php echo base_url(); ?>";
+			var is_mobile = "<?php (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])?1:0); ?>";
 		</script>
 		<link rel="shortcut icon" href="<?php echo base_url("favicon.ico");?>" type="image/x-icon">
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/jquery-ui.css");?>" type="text/css">
