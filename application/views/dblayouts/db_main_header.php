@@ -3,7 +3,9 @@
 		<span class="frstLogo">Star</span>
 		<span class="scndLogo">Services</span>
 	</span>
-	<span id="signOut" class="signout ssFlg0" onclick="signout();">Sign Out</span>
+	<?php if($this->utilities->isAuth()){?>
+		<span id="signOut" class="signout ssFlg0" >Sign Out</span>
+	<?php } ?>
 	<span class="sign-name right">
 		<span class="left">
 		<?php $userdata = $this->utilities->getSessionUserData(); ?>

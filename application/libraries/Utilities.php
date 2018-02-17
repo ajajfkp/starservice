@@ -77,7 +77,6 @@ class Utilities {
 	}
 	function destroySession() {
         $this->CI->session->sess_destroy();
-        redirect('auth/signin');
     }
 	
 	function getUserDataById($userId='0'){

@@ -85,7 +85,7 @@ class Home extends CI_Controller {
 	
 	public function editservice(){
 		$id=$this->input->post('id');
-		$data['getServiceDataArr'] = $this->auths->getServiceSetails($id);
+		//$data['getServiceDataArr'] = $this->auths->getServiceSetails($id);
 		/* echo "<pre>";
 		print_r($data['getServiceDataArr']);die;
 		echo "</pre>"; */
@@ -94,13 +94,10 @@ class Home extends CI_Controller {
 	}
 	
 	public function viewDetail(){
-		$data['Kashif']="My Name";
-		/*$id=$this->input->post('id');
-		$data['getServiceDataArr'] = $this->auths->getServiceSetails($id);
-		 echo "<pre>";
-		print_r($data['getServiceDataArr']);die;
-		echo "</pre>"; */
-		//$data['getServiceData'] =  $this->commonModel->getRecord('services','*',array('id'=>$id),array(),"","","array","0");
+		$serId=$this->input->post('serId');
+		$serDetId=$this->input->post('serDetId');
+		$data['getServiceData'] =  $this->commonModel->getServiceDataById($serId,$serDetId);
+		$data['getAllSerDetArr'] =  $this->commonModel->getRecord('service_details','*',array('service_id'=>$serId),array(),"","","array","1");
 		echo $this->load->view('home/viewpopup',$data,true);
 	}
 	
@@ -284,5 +281,9 @@ class Home extends CI_Controller {
 			break;
 		}
 		return $retArr;
+	}
+	
+	function signOut(){
+		$this->utilities->destroySession();
 	}
 }

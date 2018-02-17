@@ -1156,3 +1156,7 @@ ADD `user_image` varchar(255) COLLATE 'utf8_general_ci' NULL AFTER `address`;
 
 ALTER TABLE `services`
 ADD `guaranty` int(11) NOT NULL AFTER `warranty`;
+/* =============================================================================== */
+
+ALTER TABLE `service_details`
+ADD `done_status_date` date NOT NULL AFTER `service_date`;

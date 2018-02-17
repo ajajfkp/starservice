@@ -39,22 +39,6 @@ class Auths extends CI_Model {
 		}
 	}
 	
-	function getServiceSetails($id='0'){
-		if($id){
-			$sql="select t1.id,t1.name,t1.contact,t1.address,t1.product_cat_id,t1.product_details,t1.notes,
-			t1.purchase_date,t2.id serviceid,t2.service_date,t2.done_status,t2.service_completed_by,t2.service_note,t2.service_note
-			from services t1 left join service_details t2 on
-			t1.id=t2.service_id where t1.id=$id and t1.status='1'";
-			$resultSet=$this->db->query($sql);
-			if($resultSet->num_rows()>0){
-				return $resultSet->result_array();
-			}else{
-				return false;
-			}
-		}else{
-			return false;
-		}
-	}
 		
 }
 ?>

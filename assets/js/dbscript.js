@@ -115,6 +115,20 @@ $( document ).ready(function(){
 			}
 		}, 500);
 	});
+	
+	$("#signOut").click(function(){
+		$.ajax({
+			type: "POST",
+			url: base_url+'home/signOut',
+			data: {},
+			success: function(msg){
+				window.location = base_url;
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				setUiMessege('err',errorThrown);
+			}
+		});
+	});
 });
 
 
@@ -302,11 +316,13 @@ function deleteservic(id){
 }
 
 
- function viewDetail(){
+ function viewDetail(serId,serDetId){
 	$.ajax({
 		type: "POST",
 		url: base_url+'home/viewDetail',
 		data: {
+			serId:serId,
+			serDetId:serDetId
 		},
 		success: function(msg){
 			$("body").append(msg);
@@ -362,3 +378,4 @@ function getDefaultData(){
 		}
 	});
 }
+

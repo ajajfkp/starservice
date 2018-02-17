@@ -427,23 +427,48 @@ class CommonModel extends CI_Model {
 		}
 	}
 	
-	
-	function getUserDataById($userId){
-		$sql = 'SELECT * FROM users t1 WHERE t1.id="'.$userId.'"';
-		$query = $this->db->query($sql);
-		if($query->num_rows() > 0){
-			return $query->row_array();
+		
+	function getServiceDataById($serId=0,$serDetId=0){
+		if($serDetId){
+			$query="select t1.id serId,t2.id serDetId,t2.done_status,t3.name custname,t3.mobile contact,t3.address,t4.name product,t5.name brand,t1.modelnumber,
+			t1.sold_date purchase,t1.warranty,t1.guaranty,t2.service_date,t1.warranty_exp, t1.num_of_services,t1.duration,t3.user_image
+			from services t1 
+			inner join service_details t2 on t1.id=t2.service_id 
+			inner join customer t3 on t3.id=t1.customer_id 
+			inner join product t4 on t4.id=t1.product_id
+			inner join brand t5 on t5.id=t1.brand_id where status='1' and t1.id=$serId and t2.id=$serDetId";
+			$query = $this->db->query($query);
+			if($query->num_rows() > 0){
+				return $query->row_array();
+			}else{
+				return false;
+			}
 		}else{
 			return false;
 		}
-		
 	}
 	
-		
 	
-	
-	
-	
+	function getUserDataById($id="",$fieldArr=array()){
+		$retArr = array();
+		if($id){
+			$userData = $this->getRecord("users","*",array("id"=>$id),"","","","array","0");
+			if($userData){
+				if($fieldArr){
+					foreach($fieldArr as $field){
+						$retArr[$field] = $userData['$field'];
+					}
+					return $retArr;
+				}else{
+					return $userData;
+				}
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
 	
 	
 	

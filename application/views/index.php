@@ -13,7 +13,7 @@
 			<div class="loginUser">
 				<span class="label">Password:</span>
 				<span class="lableInput">
-					<input type="passwrod" name="userName" id="passwd" class="usewrInptbx">
+					<input type="password" name="userName" id="passwd" class="usewrInptbx">
 				</span>
 			</div>
 		</div>
