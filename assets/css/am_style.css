@@ -626,6 +626,91 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
 	display:hide;
 }
 
+.filtr-optn, .rslt-count {
+    float: left;
+    width: 150px;
+    border: 1px solid #426274;
+    padding: 4px 7px;
+    font-size: 16px;
+    margin-left: 5px;
+    background: #426274;
+    color: #ffffff;
+}
+
+.sel-tday-hdng{
+	width:70px;
+	margin: 6px 0px 0px 20px;
+}
+
+.rslt-count{
+	width:134px;
+	text-align:center;
+}
+
+.cstmr-srch-sectn {
+  float: left;
+  width: calc(100% - 12px);
+  padding: 6px 0px;
+  background: #dadada;
+  margin: 5px;
+  box-shadow: 0px 0px 5px 1px #acacac inset;
+}
+.srch-lbl {
+  margin: 4px 0px 0px 10px;
+  float: left;
+}
+.cstmd-src-optn {
+  float: left;
+  margin: 5px -5px 0px 15px;
+}
+.srch-val {
+  float: left;
+}
+.serach-val-cstmr {
+  float: left;
+  margin: 0px 0px 0px 15px;
+  border: 1px solid #ffffff;
+  padding: 2px 6px;
+  width: 122px;
+}
+
+.cstmd-inpt-src-optn{
+	border: 1px solid #ffffff;
+	padding: 3px 6px;
+	width: 180px;
+	margin-left:15px;
+}
+
+.cstmr-srch-rslt-sec .cstmr-detal {
+  float: left;
+  width: calc(100% - 30px);
+  padding: 0px 15px;
+  border-bottom: 1px dashed #dadada;
+}
+
+.cstmr-srch-rslt-sec .cstmr-info {
+  margin-top: 14px;
+  float: left;
+}
+
+.cstmr-srch-rslt-sec .cstmr-pic {
+	float: left;
+	margin:3px 5px 2px -4px;
+}
+.cstmr-srch-rslt-sec .cstmr-pic-innr{
+	float: left;
+	border-radius: 31px;
+	width: 40px;
+	height: 40px;
+}
+
+
+
+
+
+
+
+
 @media only screen and (device-width: 768px) {
   /* For general iPad layouts */
 }
@@ -976,7 +1061,44 @@ footer {
     margin: 0px 0px 11px 5px;
 }
 
-	
+.filtr-optn, .rslt-count {
+	margin-top:5px;
+	padding: 2px 7px 2px 7px;
+	font-size: 13px;
+	width: 100px;
+}
+
+.rslt-count {
+    width: 83px;
+}
+
+.sel-tday-hdng {
+    width: 47px;
+    margin:9px 0px 0px 10px;
+    font-size: 13px;
+}
+
+.prdt-dt-sectn {
+    width: 49%;
+}
+
+.cstmd-inpt-src-optn {
+    width: 135px;
+    margin:7px 0px 0px 10px;'
+}
+
+.serach-val-cstmr{
+	margin-top: 7px;
+}
+
+.cstmr-srch-rslt-sec .cstmr-info {
+    margin-top:0px;
+}
+
+.srch-lbl {
+    width: 100%;
+}
+
 }
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
   /* For portrait layouts only */

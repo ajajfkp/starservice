@@ -72,6 +72,10 @@ $( document ).ready(function(){
 		$('#serviceDatelst').slideToggle('slow');	
 	});
 	
+	$('.dt-sel').click(function(){
+		$('#selCalVal').slideToggle('slow');	
+	});
+	
 	$('.dd-listing').click(function(){
 		var listVal = $(this).html();
 		$('.filtertxt').html('');

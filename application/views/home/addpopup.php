@@ -3,7 +3,94 @@
 			<span class="heading">Add New Entry:</span>
 			<span id="popupCloseCross" class="popup-Close" >X</span>
 		</div>
+		<div class="cstmr-srch-sectn">
+			<span class="srch-lbl">Customer Search:</span>
+			<!--<span class="srch-val">
+				<input type="radio" class="cstmd-src-optn" name="cstmrSrch" id="" checked="">
+				<span class="srch-lbl">New</span>
+			</span>
+			<span class="srch-val">
+				<input type="radio" class="cstmd-src-optn" name="cstmrSrch" id="">
+				<span class="srch-lbl">Existing</span>
+			</span>-->
+			<span class="srch-val">
+				<input type="text" class="cstmd-inpt-src-optn" name="cstmrSrch" id="" placeholder="Search here...">
+			</span>
+			<span class="srch-val">
+				<select class="serach-val-cstmr">
+					<option value="">Mobile No.</option>
+					<option value="">Name</option>
+					<option value="">Address</option>
+				</select>
+			</span>
+		</div>
+		
+		<div class="cstmr-srch-rslt-sec">
+			<div class="cstmr-detal">
+				<div class="cstmr-detal-lft">
+					<span class="cstmr-pic">
+						<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
+					</span>
+					<span class="cstmr-info">
+						<span class="name">Mohammad Kashif</span>
+						<span class="cntc-no">9871902082</span>
+						<span class="prdct">M-292 Sector 25, Noida</span>
+					</span>
+				</div>
+			</div>
+			<div class="cstmr-detal">
+				<div class="cstmr-detal-lft">
+					<span class="cstmr-pic">
+						<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
+					</span>
+					<span class="cstmr-info">
+						<span class="name">Mohammad Aijaz</span>
+						<span class="cntc-no">9871902082</span>
+						<span class="prdct">M-292 Sector 25, Noida</span>
+					</span>
+				</div>
+			</div>
+		</div>
 		<div class="popup-body left">
+			<div class="popup-body-inr-hdng">
+				Customer Detail
+			</div>
+			<div class="popup-body-inner-rw-lt">
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Name:</span>
+					<span class="inner-rw-val">
+						<input type="text" name="dateSold" class="popup-inpt" id="name">
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Address:</span>
+					<span class="inner-rw-val">
+						<textarea class="popup-txtarea" id="addr"></textarea>
+					</span>
+				</div>
+			</div>
+			<div class="popup-body-inner-rw-rt">
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Mobile #:</span>
+					<span class="inner-rw-val">
+						<input type="text" name="dateSold" class="popup-inpt" id="mobile">
+					</span>
+				</div>
+				<div class="popup-body-inner-rw">
+					<span class="inner-rw-label">Note:</span>
+					<span class="inner-rw-val">
+						<textarea class="popup-txtarea" id="note"></textarea>
+					</span>
+				</div>
+			</div>
+			<div class="popup-body-inner-rw">
+				<span class="inner-rw-label">Pic:</span>
+				<span class="inner-rw-val">
+					<input type="file" name="cstmrImg" class="popup-inpt" id="cstmrImg">
+					<input type="hidden" name="userImg" id="userImg">
+				</span>
+			</div>
+			
 			<div class="popup-body-inr-hdng">
 				Product Detail
 			</div>
@@ -101,44 +188,7 @@
 					</span>
 				</div>-->
 			</div>
-			<div class="popup-body-inr-hdng">
-				Customer Detail
-			</div>
-			<div class="popup-body-inner-rw-lt">
-				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Name:</span>
-					<span class="inner-rw-val">
-						<input type="text" name="dateSold" class="popup-inpt" id="name">
-					</span>
-				</div>
-				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Address:</span>
-					<span class="inner-rw-val">
-						<textarea class="popup-txtarea" id="addr"></textarea>
-					</span>
-				</div>
-			</div>
-			<div class="popup-body-inner-rw-rt">
-				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Mobile #:</span>
-					<span class="inner-rw-val">
-						<input type="text" name="dateSold" class="popup-inpt" id="mobile">
-					</span>
-				</div>
-				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Note:</span>
-					<span class="inner-rw-val">
-						<textarea class="popup-txtarea" id="note"></textarea>
-					</span>
-				</div>
-			</div>
-			<div class="popup-body-inner-rw">
-				<span class="inner-rw-label">Pic:</span>
-				<span class="inner-rw-val">
-					<input type="file" name="cstmrImg" class="popup-inpt" id="cstmrImg">
-					<input type="hidden" name="userImg" id="userImg">
-				</span>
-			</div>
+			
 			<div class="popup-body-inr-hdng">
 				Additional Detail
 			</div>
