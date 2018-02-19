@@ -607,6 +607,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
 
 .view-servc-dtl {
     float: left;
+	width:100%;
 }
 
 .viewInfo-cstmrpic {
@@ -621,7 +622,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a82e09', end
     height: 60px;
     border: 1px solid #dadada;
 }
-
+.dsktp-hide{
+	display:hide;
+}
 
 @media only screen and (device-width: 768px) {
   /* For general iPad layouts */
@@ -686,7 +689,7 @@ menu{
 }
 
 .popup-body-inner-rw-lt, .popup-body-inner-rw-rt {
-    width: 100%;
+    width: 100% !important;
     float: left;
 }
 
@@ -783,30 +786,48 @@ box-shadow: 0px 1px 4px 1px #acacac;
 .cstmr-detal {
   float: left;
   width:calc(100% - 16px);
-  padding:10px 8px;
+  padding:5px 8px 3px 8px;
   color: #333333;
 }
 
+.cstmr-detal-lft{
+	float:left;
+	width: 82%;
+}
+
+.cstmr-info {
+    float: left;
+    width: calc(100% - 41px);
+}
+
+.cstmr-detal-rt{
+	float:right;
+	width: 18%;
+}
+
 .name {
-  width: calc(100% - 100px);
-  font-weight: bold;
-  float: left;
-   color: #111111;
+	width: 90%;
+	font-weight: bold;
+	float: left;
+	color: #555555;
+	font-size: 15px;
 }
 
 .cntc-no {
   font-size: 12px;
-  width: calc(100% - 110px);
+  width: 90%;
   float: left;
   margin-top:0px;
+  color: #777777;
 }
 
 .actn-rw {
-    float: right;
+    float: left;
 }
 
 .dn-chk{
 	float:left;
+	margin:1px 0px -1px 0px
 }
 .dn-txt {
     margin:2px 0px 0px 5px;
@@ -814,16 +835,21 @@ box-shadow: 0px 1px 4px 1px #acacac;
 }
 
 .prdct {
-  float: left;
-  width: 65%;
-  margin-top: 3px;
+	float: left;
+	width:90%;
+	margin-top: 2px;
+	/* font-variant: small-caps; */
+	/* font-weight: bold; */
+	/* color: #1f5a5f; */
+	color: #666666;
+
 }
 
 
 .info-main-btm {
     float: left;
 	width: calc(100% - 16px);
-	padding:1px 8px;
+	padding:0px 8px;
 	/* background: #62bbe4; */
 	background: #6eb3d4;
 	/* background: #446372; */
@@ -834,7 +860,7 @@ box-shadow: 0px 1px 4px 1px #acacac;
 
 .srvc-dtl {
     font-size: 12px;
-	margin-right:2px;
+	float:right;
 }
 
 .grd-rw {
@@ -904,10 +930,11 @@ footer {
 
 .mblActnlst-lnk {
     float: right;
-    margin-right: 7px;
-    border-left: 1px solid;
+    margin-left: 5px;
+    /* border-left: 1px solid; */
     padding-left: 7px;
 	cursor:pointer;
+	margin-top: 2px;
 }
 
 .heading {
@@ -921,6 +948,32 @@ footer {
 
 #viewEntry .inner-rw-label {
     width: 95px;
+}
+
+.dsktp-hide{
+ display:block;
+}
+
+.view-servc-dtl {
+    width:calc(100% - 12px);
+	margin: 0px 6px;
+}
+
+.srvc-dt-blk {
+    float: right;
+}
+
+.srvc-dte {
+    float: right;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: -3px;
+}
+
+.srvc-mnth {
+    /* clear: both; */
+    float: right;
+    margin: 0px 0px 11px 5px;
 }
 
 	

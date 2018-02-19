@@ -24,7 +24,7 @@
 			</div>
 			<div class="popup-body-inner-rw-lt">
 				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Prodcut:</span>
+					<span class="inner-rw-label">Product:</span>
 					<span class="inner-rw-val">
 						<?php echo $getServiceData['brand']." ".$getServiceData['product']." (".$getServiceData['modelnumber'].")"; ?>
 					</span>
@@ -95,6 +95,7 @@
 						</span>
 					</div>
 					<div class="popup-body-inner-rw-rt">
+						<span class="inner-rw-label dsktp-hide">&nbsp;</span>
 						<span class="inner-rw-val">
 							Done by <b><?php echo$this->utilities->getUserDataById($getServiceData['id'],array("name")); ?></b> on <?php echo $this->utilities->showDateForSpecificTimeZone($service['done_status_date']); ?>
 						</span>
@@ -103,11 +104,12 @@
 			<?php $i++; }?>
 
 			</div>
-		<div class="popup-body-inner-rw">
-			<span class="btn-cancel right" id="popupCloseCancel">Cancel</span>
-			<span class="btn-save right">Save</span>
+		
 		</div>
-	</div>
+		<div class="popup-body-inner-rw">
+			<span class="btn-cancel right" id="popupCloseCancel">Close</span>
+			<!--<span class="btn-save right">Save</span>-->
+		</div>
 	
 	
 	
