@@ -452,7 +452,8 @@ class CommonModel extends CI_Model {
 	function getUserDataById($id="",$fieldArr=array()){
 		$retArr = array();
 		if($id){
-			$userData = $this->getRecord("users","*",array("id"=>$id),"","","","array","0");
+			$userData = $this->getRecord("userss","*",array("id"=>$id),"","","","array","0");
+			print_r($userData);die;
 			if($userData){
 				if($fieldArr){
 					foreach($fieldArr as $field){

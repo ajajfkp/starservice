@@ -79,9 +79,9 @@ class Utilities {
         $this->CI->session->sess_destroy();
     }
 	
-	function getUserDataById($userId='0'){
+	function getUserDataById($userId='0',$fieldArr=array()){
 		if(!empty($userId)){
-			return $this->CI->commonModel->getUserDataById($userId);
+			return $this->CI->commonModel->getUserDataById($userId,$fieldArr);
 		}else{
 			return false;
 		}
