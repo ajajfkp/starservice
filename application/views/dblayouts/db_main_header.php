@@ -23,9 +23,9 @@
 <menu>
 	<span class="top-tab ssFlg0">Admin</span>
 	<span class="top-tab-sep ssFlg0">|</span>
-	<span class="top-tab" ><a href="<?php echo base_url("product"); ?>">Product</a></span>
+	<span class="top-tab" id="product" ><a href="<?php echo base_url("product"); ?>">Product</a></span>
 	<span class="top-tab-sep ssFlg0">|</span>
-	<span class="top-tab tb-actv"> <a href="<?php echo base_url("home"); ?>">Services</a></span>
+	<span class="top-tab" id="service"> <a href="<?php echo base_url("home"); ?>">Services</a></span>
 	<span class="top-tab-sep ssFlg0">|</span>
 </menu>
 

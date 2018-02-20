@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-	getDefaultData();
+	
 	$(document.body).on('change','#cstmrImg', function(){
 		var property = this.files[0];
 		var imgName = property.name;
@@ -381,5 +381,23 @@ function getDefaultData(){
 			setUiMessege('err',errorThrown);
 		}
 	});
+}
+
+function getDefaultProductData(){
+	$.ajax({
+		type: "POST",
+		url: base_url+'product/getDefaultProductData',
+		data: {},
+		success: function(msg){
+			$("#defaultProductView").html(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}
+
+function activateHeadMeanu(idArr){
+	$("#"+idArr).addClass("tb-actv");
 }
 

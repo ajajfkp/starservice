@@ -3,21 +3,21 @@
 class Home extends CI_Controller {
 	function __construct(){
 		parent::__construct();
-		//$this->utilities->validateSession();
+		$this->utilities->validateSession();
 		$this->load->library('Layouts');
 		$this->load->model('auth/auths');
 	}
 	
 	
 	public function index() {
-		//$extraHead = "activateHeadMeanu('topsignin')";
-		//$this->layouts->set_extra_head($extraHead);
+		$extraHead = "activateHeadMeanu('service');getDefaultData();";
+		$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
-		$data['datas'] = "";	
+		$data['data'] = "";	
 		/* echo "<pre>";
 		print_r($data['getServiceData']);die; */
 		//$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css')->add_include('https://www.google.com/recaptcha/api.js',false);
-		if(!$this->isMobile()){
+		if(!$this->utilities->isMobile()){
 			$this->layouts->dbview('home/main_page',$data);
 		}else{
 			$this->layouts->dbview('home/main_page_mobile',$data);
@@ -26,7 +26,7 @@ class Home extends CI_Controller {
 	
 	function getDefaultData(){
 		$data['getServiceData'] = $this->commonModel->getservice(Date("Y-m-d"));
-		if(!$this->isMobile()){
+		if(!$this->utilities->isMobile()){
 			echo $this->load->view('home/main_page_data',$data,true);
 		}else{
 			echo $this->load->view('home/main_page_mobile_data',$data,true);
@@ -37,7 +37,7 @@ class Home extends CI_Controller {
 		$date=$this->input->post('type');
 		$dateArr = $this->getDateBySerch($date);
 		$data['getServiceData'] = $this->commonModel->getservice($dateArr['fromDate'],$dateArr['toDate']);
-		if(!$this->isMobile()){
+		if(!$this->utilities->isMobile()){
 			echo $this->load->view('home/main_page_data',$data,true);
 		}else{
 			echo $this->load->view('home/main_page_mobile_data',$data,true);
@@ -48,7 +48,7 @@ class Home extends CI_Controller {
 		$inputval=$this->input->post('inputval');
 		$searchby=$this->input->post('searchby');
 		$data['getServiceData'] = $this->commonModel->getservicebyinput($inputval,$searchby);
-		if(!$this->isMobile()){
+		if(!$this->utilities->isMobile()){
 			echo $this->load->view('home/main_page_data',$data,true);
 		}else{
 			echo $this->load->view('home/main_page_mobile_data',$data,true);
@@ -182,10 +182,6 @@ class Home extends CI_Controller {
 		}else{
 			echo json_encode(array("status"=>"success","msg"=>"Delete failed.","data"=>$dl_res));
 		}
-	}
-	
-	public function isMobile() {
-		return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
 	}
 	
 	public function getBrandList() {

@@ -403,6 +403,35 @@ class CommonModel extends CI_Model {
 		}
 	}
 	
+	function getproduct($fromdate="",$todate="",$product="",$brand=""){
+		$where = "";
+		if(!empty($todate)&&!empty($fromdate)){
+			$where = " and t1.sold_date BETWEEN '".$fromdate."' and '".$todate."'";
+		}else if(!empty($fromdate)){
+			$where = " and t1.sold_date <= '".$fromdate."'";
+		}
+		if($product){
+			$where .= " and t2.id='".$product."'";
+		}
+		if($brand){
+			$where .= " and t3.id='".$brand."'";
+		}
+		
+		$query="select t1.id serId,t2.name product,t3.name brand,t1.modelnumber,
+			t1.sold_date purchase,t1.warranty,t1.guaranty,t1.referral,t1.referral_other,
+			(select count(id) as cnt From service_details where service_id=t1.id and done_status='0') as act
+			from services t1 
+			inner join product t2 on t2.id=t1.product_id
+			inner join brand t3 on t3.id=t1.brand_id where status='1' $where";
+			echo $query;
+			$resultSet=$this->db->query($query);
+		if($resultSet->num_rows()>0){
+			return $resultSet->result_array();
+		}else{
+			return false;
+		}
+	}
+	
 	function getservicebyinput($inputval,$searchby){
 		if($searchby=='1'){
 			$wheresql = " and t3.mobile LIKE '%".$inputval."%'";

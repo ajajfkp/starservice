@@ -53,19 +53,13 @@ class Utilities {
 	
 	public function validateSession() {
 		if ($this->isAuth()) {
-			if($_SERVER['REQUEST_URI']=='/index'){
-				redirect('/home');
-			}else if($_SERVER['REQUEST_URI']=='/home'){
-				//redirect('/');
-			}/* else if($_SERVER['REQUEST_URI']=='/auth/signupauth'){
-				redirect('/');
-			}else if($_SERVER['REQUEST_URI']=='/auth/signinauth'){
-				redirect('dashboard');
-			} */
+			
         } else {
 			$this->destroySession();
+			redirect("/index");
 		}
 	}
+
 	
 	function isAuth(){
 		$sesdata = $this->CI->session->userdata('userdata');
@@ -396,7 +390,9 @@ class Utilities {
 	
 	
 	
-	
+	public function isMobile() {
+		return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+	}
 	
 	
 	
