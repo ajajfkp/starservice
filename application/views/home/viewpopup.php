@@ -97,7 +97,7 @@
 					<div class="popup-body-inner-rw-rt">
 						<span class="inner-rw-label dsktp-hide">&nbsp;</span>
 						<span class="inner-rw-val">
-							Done by <b><?php echo$this->utilities->getUserDataById($getServiceData['id'],array("name")); ?></b> on <?php echo $this->utilities->showDateForSpecificTimeZone($service['done_status_date']); ?>
+							Done by <b><?php echo $this->utilities->getUserDataById($service['service_completed_by'],array("name"))['name']; ?></b> on <?php echo $this->utilities->showDateForSpecificTimeZone($service['done_status_date']); ?>
 						</span>
 					</div>
 				</div>
