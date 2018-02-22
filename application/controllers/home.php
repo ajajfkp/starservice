@@ -282,4 +282,28 @@ class Home extends CI_Controller {
 	function signOut(){
 		$this->utilities->destroySession();
 	}
+	
+	function getCstmerList(){
+		$inputval = $this->input->post('inputval');
+		if($inputval){
+			$searchby = $this->input->post('searchby');
+			if($searchby=="1"){
+				$whrCon = " mobile LIKE '%".$inputval."%'";
+			}else if($searchby=="2"){
+				$whrCon = " name LIKE '%".$inputval."%'";
+			}else if($searchby=="3"){
+				$whrCon = " address LIKE '%".$inputval."%'";
+			}else {
+				$whrCon = "";
+			}
+			$cstmrDataArr = $this->commonModel->getRecord("customer","*",$whrCon,"","","","array","1");
+			if($cstmrDataArr){
+				echo json_encode($cstmrDataArr);
+			}else{
+				echo json_encode(array());
+			}
+		}else{
+			echo json_encode(array());
+		}
+	}
 }

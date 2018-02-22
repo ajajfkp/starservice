@@ -10,11 +10,15 @@ class Index extends CI_Controller {
 	}
 
 	public function index() {
-		//$extraHead = "activateHeadMeanu('topdashboard,topdashboardhead,intopdashboard')";
-		//$this->layouts->set_extra_head($extraHead);
-		$this->layouts->set_title('welcome');
-		$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css');
-		$this->layouts->view('index');
+		if($this->utilities->isAuth()){
+			redirect("/home");
+		}else{
+			//$extraHead = "activateHeadMeanu('topdashboard,topdashboardhead,intopdashboard')";
+			//$this->layouts->set_extra_head($extraHead);
+			$this->layouts->set_title('welcome');
+			$this->layouts->add_include('assets/js/main.js')->add_include('assets/css/coustom.css');
+			$this->layouts->view('index');
+		}
 	}
 	
 	public function signin() {

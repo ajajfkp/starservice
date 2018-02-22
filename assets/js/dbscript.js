@@ -60,11 +60,56 @@ $( document ).ready(function(){
 		$("body #addNewEntry").remove();
 	});
 
-	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
+	$(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$("body #viewEntry").remove();
 	});
-	jQuery(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
+	
+	$(document.body).on('click', '#popupCloseCancel,#popupCloseCross', function(event) {
 		$('#passwrdPopup').hide();
+	});
+	
+	$(document.body).on('keyup', '#cstmrSrch', function(event) {
+		var inputval = $(this).val();
+		var searchby = $("#cstmrSrchBy").val();
+		setTimeout(function(){
+			if(!!inputval){
+				$.ajax({
+					type: "POST",
+					url: base_url+'home/getCstmerList',
+					data: {
+						inputval:inputval,
+						searchby:searchby
+					},
+					success: function(msg){
+						var retStr = "";
+						var jsonObjArr = $.parseJSON(msg);
+						if(!jQuery.isEmptyObject(jsonObjArr)){
+							for( var i in jsonObjArr){
+								var jsonObj = jsonObjArr[i];
+								retStr+='<div class="cstmr-detal" onclick="javascript:getCstmrDetail(\''+jsonObj.id+'\',\''+jsonObj.name+'\',\''+jsonObj.mobile+'\',\''+jsonObj.address+'\')">';
+								retStr+='<div class="cstmr-detal-lft">';
+								retStr+='<span class="cstmr-pic">';
+								retStr+='<img class="cstmr-pic-innr" src="'+ base_url + 'uploads/userimg/'+ (jsonObj.user_image ? jsonObj.user_image : '') +'">';
+								retStr+='</span>';
+								retStr+='<span class="cstmr-info">';
+								retStr+='<span class="name">'+ (jsonObj.name ? jsonObj.name : '') +'</span>';
+								retStr+='<span class="cntc-no">'+ (jsonObj.mobile ? jsonObj.mobile : '') +'</span>';
+								retStr+='<span class="prdct">'+ (jsonObj.address ? jsonObj.address : '') +'</span>';
+								retStr+='</span>';
+								retStr+='</div>';
+								retStr+='</div>';
+							}
+							$("#cstmrList").html(retStr);
+						}else{
+							$("#cstmrList").html("");
+						}
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+						setUiMessege('err',errorThrown);
+					}
+				});
+			}
+		}, 500);
 	});
 	
 	
@@ -400,4 +445,12 @@ function getDefaultProductData(){
 function activateHeadMeanu(idArr){
 	$("#"+idArr).addClass("tb-actv");
 }
+
+function getCstmrDetail(cstmrId,name,mobile,addr){
+	$("#name").val( !!name ? name : '' );
+	$("#mobile").val( !!mobile ? mobile : '' );
+	$("#addr").val( !!addr ? addr : '' );
+}
+
+
 

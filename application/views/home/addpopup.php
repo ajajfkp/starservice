@@ -14,42 +14,19 @@
 				<span class="srch-lbl">Existing</span>
 			</span>-->
 			<span class="srch-val">
-				<input type="text" class="cstmd-inpt-src-optn" name="cstmrSrch" id="" placeholder="Search here...">
+				<input type="text" class="cstmd-inpt-src-optn" name="cstmrSrch" id="cstmrSrch" placeholder="Search here...">
 			</span>
 			<span class="srch-val">
-				<select class="serach-val-cstmr">
-					<option value="">Mobile No.</option>
-					<option value="">Name</option>
-					<option value="">Address</option>
+				<select class="serach-val-cstmr" id="cstmrSrchBy">
+					<option value="1">Mobile No.</option>
+					<option value="2">Name</option>
+					<option value="3">Address</option>
 				</select>
 			</span>
 		</div>
 		
-		<div class="cstmr-srch-rslt-sec">
-			<div class="cstmr-detal">
-				<div class="cstmr-detal-lft">
-					<span class="cstmr-pic">
-						<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-					</span>
-					<span class="cstmr-info">
-						<span class="name">Mohammad Kashif</span>
-						<span class="cntc-no">9871902082</span>
-						<span class="prdct">M-292 Sector 25, Noida</span>
-					</span>
-				</div>
-			</div>
-			<div class="cstmr-detal">
-				<div class="cstmr-detal-lft">
-					<span class="cstmr-pic">
-						<img class="cstmr-pic-innr" src="<?php echo base_url("assets/images/penguins.jpg"); ?>">
-					</span>
-					<span class="cstmr-info">
-						<span class="name">Mohammad Aijaz</span>
-						<span class="cntc-no">9871902082</span>
-						<span class="prdct">M-292 Sector 25, Noida</span>
-					</span>
-				</div>
-			</div>
+		<div class="cstmr-srch-rslt-sec" id="cstmrList">
+			
 		</div>
 		<div class="popup-body left">
 			<div class="popup-body-inr-hdng">
