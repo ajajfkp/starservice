@@ -1098,6 +1098,12 @@ footer {
 .srch-lbl {
     width: 100%;
 }
+.handheld-logout{
+	display: block;
+	font-size: 26px;
+	margin: -13px;
+	color: #5bd75b;
+}
 
 }
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {

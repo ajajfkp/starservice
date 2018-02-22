@@ -4,8 +4,12 @@
 		<span class="scndLogo">Services</span>
 	</span>
 	<?php if($this->utilities->isAuth()){?>
-		<span id="signOut" class="signout ssFlg0" >Sign Out</span>
+		<span id="signOut" class="signout" >
+			<span><span class="hide handheld-logout">&#9737;</span><span class="ssFlg0">Sign Out</span></span>
+		</span>
 	<?php } ?>
+
+	
 	<span class="sign-name right">
 		<span class="left">
 		<?php $userdata = $this->utilities->getSessionUserData(); ?>
