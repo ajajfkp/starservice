@@ -12,13 +12,14 @@
 		<link rel="shortcut icon" href="<?php echo base_url("favicon.ico");?>" type="image/x-icon">
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/jquery-ui.css");?>" type="text/css">
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/am_style.css");?>" type="text/css">
+		<link rel="stylesheet" href="<?php echo base_url("assets/css/toastr.min.css");?>" type="text/css">
 		<link rel="stylesheet" href="<?php echo base_url("assets/css/validationEngine.jquery.css");?>" type="text/css"/>
 		<script src="<?php echo base_url("assets/js/jquery/jquery.js");?>"></script>
 		<script src="<?php echo base_url("assets/js/jquery/jquery-ui.js");?>"></script>
 		<?php echo $this->layouts->print_includes(); ?>
 	</head>
 	<body>
-	
+		
 		<?php $this->load->view('dblayouts/db_main_header'); ?>
 			<?php echo $content_for_layout; ?> 
 		<?php $this->load->view('dblayouts/db_main_footer'); ?>
@@ -28,6 +29,8 @@
 		<script src="<?php echo base_url("assets/js/jquery.validationEngine-en.js");?>"></script>
 		<script src="<?php echo base_url("assets/js/jquery.validationEngine.js");?>"></script>
 		<script src="<?php echo base_url("assets/js/validator.js");?>"></script>
+		<script src="<?php echo base_url("assets/js/toastr.min.js");?>"></script>
+		<script src="<?php echo base_url("assets/sweetalert/dist/sweetalert.min.js");?>"></script>
 		<script><?php echo $extra_head; ?></script>
 	</body> 
 </html>

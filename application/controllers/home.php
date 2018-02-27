@@ -306,4 +306,15 @@ class Home extends CI_Controller {
 			echo json_encode(array());
 		}
 	}
+	
+	function deleteSerRow(){
+		$serId = $this->input->post('serId');
+		$serDetId = $this->input->post('serDetId');
+		$retArr = array("ststus"=>"0","msg"=>"Somthing is wrong please try again.");
+		if($serId){
+			$up_res = $this->commonModel->updateRecord('services',array("status"=>"2"),array("id"=>$serId));
+			$retArr = array("ststus"=>"1","msg"=>"Service delete");
+		}
+		echo json_encode($retArr);
+	}
 }

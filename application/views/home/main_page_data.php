@@ -16,7 +16,7 @@
 			<span class="cursor" onClick="viewDetail('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">View |</span>
 			<span class="cursor" onClick="editDetail('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">Edit |</span>
 			<span class="cursor" onClick="updateService('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">Update | </span>
-			<span class="cursor red" onClick="deleteRow('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">&#10008;</span>
+			<span class="cursor red" onClick="deleteSerRow('<?php echo $getService['serId'];?>','<?php echo $getService['serDetId'];?>');">&#10008;</span>
 		</td>
 	</tr>
 <?php

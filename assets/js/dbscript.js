@@ -1,5 +1,4 @@
 $( document ).ready(function(){
-	
 	$(document.body).on('change','#cstmrImg', function(){
 		var property = this.files[0];
 		var imgName = property.name;
@@ -452,5 +451,74 @@ function getCstmrDetail(cstmrId,name,mobile,addr){
 	$("#addr").val( !!addr ? addr : '' );
 }
 
+function deleteSerRow(serId,SerDetId){
+	createConfirmAlert("Are you sure?","Once deleted, you will not be able to recover this service!",deleteRowConfirm,[serId,SerDetId])
+}
 
+function deleteRowConfirm(argsArr){
+	
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/deleteSerRow',
+		data: {
+			serId:argsArr[0],
+			serDetId:argsArr[1]
+		},
+		success: function(msg){
+			var jsonObj = $.parseJSON(msg);
+			if(jsonObj.status =="0"){
+				setUiMessege('err',errorThrown);
+			}else{
+				setUiMessege('suc',jsonObj.msg);
+				location.reload(true);
+			}
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}
 
+function createConfirmAlert(title,text,ok,okags,cancle,cancleargs){
+	swal({
+		title: title,
+		text: text,
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+	}).then(function(willDelete){
+		if (willDelete) {
+			if(typeof ok != undefined && Object.prototype.toString.call(ok) == '[object Function]'){
+				ok(okags);
+			}
+		} else {
+			if(typeof cancle != undefined && Object.prototype.toString.call(cancle) == '[object Function]'){
+			cancle(cancleargs);
+			}
+		}
+	});
+}
+
+function setUiMessege(type,message,title){
+	switch (type){
+		case 'err':
+			toastr.error(message, title, {
+				"timeOut": "0",
+				"extendedTImeout": "0",
+				"positionClass": "toast-top-center",
+			});
+		break;
+		
+		case 'suc':
+		toastr.success(message);
+		break;
+		
+		case 'inf':
+		toastr.info(message, title);
+		break;
+		
+		case 'war':
+		toastr.warning(message);
+		break;
+	}
+}
