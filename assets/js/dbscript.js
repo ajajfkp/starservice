@@ -4,11 +4,11 @@ $( document ).ready(function(){
 		var imgName = property.name;
 		var img_ext = imgName.split(".").pop().toLowerCase();
 		if($.inArray(img_ext,['png','jpg','jpeg'])== -1){
-			alert('Invalid image file');
+			setUiMessege("err","Invalid image file");
 			return false;
 		}
 		if(property.sige > 1024*1024){
-			alert('Image file sige is very big');
+			setUiMessege("err","Image file sige is very big");
 			return false;
 		}
 		var form_data = new FormData();
@@ -23,10 +23,48 @@ $( document ).ready(function(){
 			success: function(msg){
 				var jsonObj = $.parseJSON(msg);
 				if("error" == jsonObj.error){
-					alert("Image not upload");
+					setUiMessege('err',"Image not upload");
 					$("#cstmrImg").val('');
 				}else{
 					$("#userImg").val(jsonObj.file_name);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				setUiMessege('err',errorThrown);
+			}
+		});
+		
+	});
+	
+	$(document.body).on('change','#cstmrEditImg', function(){
+		var property = this.files[0];
+		var imgName = property.name;
+		var img_ext = imgName.split(".").pop().toLowerCase();
+		if($.inArray(img_ext,['png','jpg','jpeg'])== -1){
+			setUiMessege("err","Invalid image file");
+			return false;
+		}
+		if(property.sige > 1024*1024){
+			setUiMessege("err","Image file sige is very big");
+			return false;
+		}
+		var form_data = new FormData();
+		form_data.append("cstmrEditImg",property);
+		$.ajax({
+			type: "POST",
+			url: base_url+'home/uploadUserEditImg',
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: form_data,
+			success: function(msg){
+				var jsonObj = $.parseJSON(msg);
+				if("error" == jsonObj.error){
+					setUiMessege('err',"Image not upload");
+					$("#cstmrEditImg").val('');
+				}else{
+					$("#userEditImg").val(jsonObj.file_name);
+					$("#showUserEditImg").html('<img src="'+base_url+'uploads/userimg/'+jsonObj.file_name+'" alt="Customer image" width="100px;" />');
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -198,7 +236,7 @@ function getBrandList(prodId){
 }
 
 function saveeservicepopup(){
-	 
+	
 	var validateArray = Array();
 		validateArray.push("req,product");		
 		/* validateArray.push("req,brand");		
@@ -238,6 +276,57 @@ function saveeservicepopup(){
 					window.location = base_url+"home";
 				}else{
 					//setUiMessege('err',jsonObj.msg);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				setUiMessege('err',errorThrown);
+			}
+		});
+	}
+}
+
+function editservicedetail(){
+	var validateArray = Array();
+		validateArray.push("req,product");		
+		/* validateArray.push("req,brand");		
+		validateArray.push("req,warranty");		
+		validateArray.push("req,dateSold");		
+		validateArray.push("req,services");		
+		validateArray.push("req,duration");
+		validateArray.push("req,name");		 */
+	if(validateData(validateArray)){
+		return false;
+	}else{
+		$.ajax({
+			type: "POST",
+			url: base_url+'home/editservicedetail',
+			data: {
+				serId:$("#serId").val(),
+				product:$("#product").val(),
+				brand:$("#brand").val(),
+				modelNum:$("#modelNum").val(),
+				dateSold:$("#dateSold").val(),
+				guaranty:$("#guaranty").val(),
+				warranty:$("#warranty").val(),
+				services:$("#services").val(),
+				duration:$("#duration").val(),
+				custId:$("#custId").val(),
+				name:$("#name").val(),
+				addr:$("#addr").val(),
+				mobile:$("#mobile").val(),
+				note:$("#note").val(),
+				userEditImg:$("#userEditImg").val(),
+				referral:$("#referral").val(),
+				referralotr:$("#referralotr").val()
+			},
+			success: function(msg){
+				var jsonObj = $.parseJSON(msg);
+				if(jsonObj.status=="success"){
+					closeservicepopup();
+					window.location = base_url+"home";
+					setUiMessege('suc',jsonObj.msg);
+				}else{
+					setUiMessege('err',jsonObj.msg);
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -381,11 +470,30 @@ function deleteservic(id){
 	});
  }
 
- function updateService(){
+ function editDetail(serId,serDetId){
+	$.ajax({
+		type: "POST",
+		url: base_url+'home/editDetail',
+		data: {
+			serId:serId,
+			serDetId:serDetId
+		},
+		success: function(msg){
+			$("body").append(msg);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			setUiMessege('err',errorThrown);
+		}
+	});
+}
+ 
+ function updateService(serId,serDetId){
 	$.ajax({
 		type: "POST",
 		url: base_url+'home/updateEntry',
 		data: {
+			serId:serId,
+			serDetId:serDetId
 		},
 		success: function(msg){
 			$("body").append(msg);
@@ -498,6 +606,9 @@ function createConfirmAlert(title,text,ok,okags,cancle,cancleargs){
 		}
 	});
 }
+
+
+/*==============common function ============================*/
 
 function setUiMessege(type,message,title){
 	switch (type){

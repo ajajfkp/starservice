@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 	
 	
 	public function index() {
-		$extraHead = "activateHeadMeanu('service');getDefaultData();";
+		$extraHead = "activateHeadMeanu('servicetab');getDefaultData();";
 		$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Home');
 		$data['data'] = "";	
@@ -77,13 +77,35 @@ class Home extends CI_Controller {
         }
 	}
 	
+	public function uploadUserEditImg(){
+		//print_r($_FILES['cstmrImg']);
+		$config['upload_path']          = './uploads/userimg/';
+		$config['allowed_types']        = 'jpeg|JPEG|jpg|JPG|png|PNG';
+		$config['max_size']             = '*';
+		$config['max_width']            = '*';
+		$config['max_height']           = '*';
+		$config['encrypt_name'] 		= TRUE;
+		$this->load->library('upload', $config);
+		if ( ! $this->upload->do_upload('cstmrEditImg')) {
+			$error = array('error' => $this->upload->display_errors());
+			echo json_encode($error);
+		} else {
+			$data = $this->upload->data();
+			if($data){
+				echo json_encode($data);
+			}else{
+				echo json_encode( array('error' =>'File not upload'));
+			}
+        }
+	}
+	
 	public function openaddservice(){
 		$data['getServiceData'] = "";
 		$data['productList'] = $this->utilities->getProduct();
 		echo $this->load->view('home/addpopup',$data,true);
 	}
 	
-	public function editservice(){
+	public function updateservicepopup(){
 		$id=$this->input->post('id');
 		//$data['getServiceDataArr'] = $this->auths->getServiceSetails($id);
 		/* echo "<pre>";
@@ -101,14 +123,22 @@ class Home extends CI_Controller {
 		echo $this->load->view('home/viewpopup',$data,true);
 	}
 	
+	public function editDetail(){
+		$serId=$this->input->post('serId');
+		$serDetId=$this->input->post('serDetId');
+		$data['getServiceData'] =  $this->commonModel->getServiceDataById($serId,$serDetId);
+		$data['getAllSerDetArr'] =  $this->commonModel->getRecord('service_details','*',array('service_id'=>$serId),array(),"","","array","1");
+		$data['productList'] = $this->utilities->getProduct();
+		$data['serDone'] = $this->utilities->isAnyDoneService($serId);
+		$data['brandList'] = $this->utilities->getBrand($data['getServiceData']['productid']);
+		echo $this->load->view('home/editpopup',$data,true);
+	}
+	
 	public function updateEntry(){
-		$data['Kashif']="My Name";
-		/*$id=$this->input->post('id');
-		$data['getServiceDataArr'] = $this->auths->getServiceSetails($id);
-		 echo "<pre>";
-		print_r($data['getServiceDataArr']);die;
-		echo "</pre>"; */
-		//$data['getServiceData'] =  $this->commonModel->getRecord('services','*',array('id'=>$id),array(),"","","array","0");
+		$serId=$this->input->post('serId');
+		$serDetId=$this->input->post('serDetId');
+		$data['getServiceData'] =  $this->commonModel->getServiceDataById($serId,$serDetId);
+		$data['getAllSerDetArr'] =  $this->commonModel->getRecord('service_details','*',array('service_id'=>$serId),array(),"","","array","1");
 		echo $this->load->view('home/updateService',$data,true);
 	}
 	
@@ -156,6 +186,60 @@ class Home extends CI_Controller {
 			}
 		}
 		echo json_encode(array("status"=>"success","msg"=>"Service recorded successfully."));
+	}
+	
+	public function editservicedetail() {
+
+		$custArr = Array(
+			"name"=>$this->input->post('name'),
+			"mobile"=>$this->input->post('mobile'),
+			"address"=>$this->input->post('addr'),
+			"user_image"=>$this->input->post('userEditImg'),
+			"date_updated"=>date("Y-m-d H:i:s"),
+			"update_dby"=>$this->utilities->getSessionUserData('uid')
+		);
+		if(!empty($this->input->post('name'))){
+			$this->commonModel->updateRecord('customer',$custArr,array('id'=>$this->input->post('custId')));
+		}
+		
+		$serId = $this->input->post('serId');
+		
+		if(!empty($serId)){
+			$serDataArr = Array();
+			$serDataArr['customer_id'] = $this->input->post('custId');
+			$serDataArr['product_id'] = $this->input->post('product');
+			$serDataArr['brand_id'] = $this->input->post('brand');
+			$serDataArr['modelnumber'] = $this->input->post('modelNum');
+			$serDataArr['warranty'] = $this->input->post('warranty');
+			$serDataArr['guaranty'] = $this->input->post('guaranty');
+			$serDataArr['sold_date'] = $this->utilities->convertDateFormatForDbase($this->input->post('dateSold'));
+			$serDataArr['num_of_services'] = $this->input->post('services');
+			$serDataArr['duration'] = $this->input->post('duration');
+			$serDataArr['warranty_exp'] = $this->calcWarExp($serDataArr['sold_date'],$serDataArr['warranty']);
+			$serDataArr['notes'] = $this->input->post('note');
+			$serDataArr['referral'] = $this->input->post('referral');
+			$serDataArr['referral_other'] = $this->input->post('referralotr');
+			
+			$this->commonModel->updateRecord('services',$serDataArr,array('id'=>$serId));
+			$chkSerDn = $this->utilities->isAnyDoneService($serId);
+			if(!$chkSerDn){
+				if($serId){
+					
+					$this->commonModel->deleteRecord('service_details',array("service_id"=>$serId));
+					
+					$calcSerDateArr = $this->calcSerDate($serDataArr['sold_date'],$serDataArr['num_of_services'],$serDataArr['duration']);
+					
+					if($calcSerDateArr && !empty($this->input->post('warranty'))){
+						foreach($calcSerDateArr as $serArr){
+							$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serArr,"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
+						}
+					}else{
+						$this->commonModel->insertRecord('service_details',array("service_id"=>$serId,"service_date"=>$serId,"done_status"=>"1","service_completed_by"=>$this->utilities->getSessionUserData('uid'),"added_by"=>$this->utilities->getSessionUserData('uid'),"date_added"=>date("Y-m-d H:i:s")));
+					}
+				}
+			}
+		}
+		echo json_encode(array("status"=>"success","msg"=>"Service updated successfully."));
 	}
 	
 	public function updateservice() {

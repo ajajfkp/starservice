@@ -459,8 +459,8 @@ class CommonModel extends CI_Model {
 		
 	function getServiceDataById($serId=0,$serDetId=0){
 		if($serDetId){
-			$query="select t1.id serId,t2.id serDetId,t2.done_status,t3.name custname,t3.mobile contact,t3.address,t4.name product,t5.name brand,t1.modelnumber,
-			t1.sold_date purchase,t1.warranty,t1.guaranty,t2.service_date,t1.warranty_exp, t1.num_of_services,t1.duration,t3.user_image
+			$query="select t1.id serId,t2.id serDetId,t2.done_status,t3.name custname,t3.mobile contact,t3.address,t4.id productid,t4.name product,t5.id brandid, t5.name brand,t1.modelnumber,t1.referral,t1.referral_other,
+			t1.sold_date purchase,t1.warranty,t1.guaranty,t2.service_date,t1.warranty_exp, t1.num_of_services,t1.duration,t1.notes, t3.user_image,t3.id custid
 			from services t1 
 			inner join service_details t2 on t1.id=t2.service_id 
 			inner join customer t3 on t3.id=t1.customer_id 

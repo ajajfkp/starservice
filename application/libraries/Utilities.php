@@ -388,7 +388,19 @@ class Utilities {
 		return ($newindex > 0 && $newindex < sizeof($hash)) ? $keys[$newindex] : false;
 	}
 	
-	
+	function isAnyDoneService($serId="0"){
+		if($serId){
+			$getSerDataArr = $this->CI->commonModel->getRecord("service_details","*",array("service_id"=>$serId),"","","","array","1");
+			if($getSerDataArr){
+				foreach($getSerDataArr as $getSerData){
+					if( $getSerData['done_status'] == "1" ){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 	
 	public function isMobile() {
 		return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);

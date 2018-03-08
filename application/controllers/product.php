@@ -10,7 +10,7 @@ class Product extends CI_Controller {
 	
 	
 	public function index() {
-		$extraHead = "activateHeadMeanu('product');getDefaultProductData();";
+		$extraHead = "activateHeadMeanu('producttab');getDefaultProductData();";
 		$this->layouts->set_extra_head($extraHead);
 		$this->layouts->set_title('Product');
 		

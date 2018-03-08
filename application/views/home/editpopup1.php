@@ -1,8 +1,6 @@
-<?php
-?>
-<div id="viewEntry" class="add-new-deatil-main-con view-popup">
+	<div id="viewEntry" class="add-new-deatil-main-con view-popup">
 		<div class="popu-header">
-			<span class="heading">Update Services:</span>
+			<span class="heading">Customer & Product Details:</span>
 			<span id="popupCloseCross" class="popup-Close" >X</span>
 		</div>
 		<div class="popup-body left">
@@ -26,7 +24,7 @@
 			</div>
 			<div class="popup-body-inner-rw-lt">
 				<div class="popup-body-inner-rw">
-					<span class="inner-rw-label">Prodcut:</span>
+					<span class="inner-rw-label">Product:</span>
 					<span class="inner-rw-val">
 						<?php echo $getServiceData['brand']." ".$getServiceData['product']." (".$getServiceData['modelnumber'].")"; ?>
 					</span>
@@ -84,41 +82,36 @@
 					</div>
 				</div>
 			</div>
-			<div class="updt-servc-dtl">
+			<div class="view-servc-dtl">
 			<?php
 				$i=1;
 				foreach($getAllSerDetArr as $service){
 			?>
-				<div class="popup-body-inner-rw">
+				<div class="popup-body-inner-rw <?php echo (($service['done_status']=='1') ? "red" : "" )?>">
 					<div class="popup-body-inner-rw-lt">
 						<span class="inner-rw-label">Service <?php echo $i; ?>:</span>
-						<span class="inner-rw-val red">
+						<span class="inner-rw-val">
 							<?php echo $this->utilities->showDateForSpecificTimeZone($service['service_date']); ?>
 						</span>
 					</div>
 					<div class="popup-body-inner-rw-rt">
-						<span class="inner-rw-val wdthfl">
-							<span class="left srvc-check">
-								<input type="checkbox">
-							</span>
-							<span class="left src-dn-txt red">
-								Due 
-							</span>
-							<span class="left srvc-dt">
-								<input type="input"class="srvc-inpt" placeholder="DD-MM-YYYY">
-							</span>
-							<span class="left src-usr">
-								<input type="input"class="srvc-inpt-Name" placeholder="Enter Name">
-							</span>
+						<span class="inner-rw-label dsktp-hide">&nbsp;</span>
+						<span class="inner-rw-val">
+							Done by <b><?php echo $this->utilities->getUserDataById($service['service_completed_by'],array("name"))['name']; ?></b> on <?php echo $this->utilities->showDateForSpecificTimeZone($service['done_status_date']); ?>
 						</span>
 					</div>
 				</div>
-				<?php $i++; }?>
+			<?php $i++; }?>
+
 			</div>
-					
+		
 		</div>
 		<div class="popup-body-inner-rw">
-			<span class="btn-cancel right" id="popupCloseCancel">Cancel</span>
-			<span class="btn-save right">Save</span>
+			<span class="btn-cancel right" id="popupCloseCancel">Close</span>
+			<!--<span class="btn-save right">Save</span>-->
 		</div>
-	</div>
+	
+	
+	
+	
+	
